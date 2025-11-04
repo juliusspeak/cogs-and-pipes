@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjjc13g44lmh1"]
+
+[ext_resource type="Script" uid="uid://b22wxt5jgbuyy" path="res://scenes/ui/builder/build_button.gd" id="1_5h4py"]
+
+[node name="BuildButton" type="Button"]
+custom_minimum_size = Vector2(100, 100)
+expand_icon = true
+script = ExtResource("1_5h4py")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

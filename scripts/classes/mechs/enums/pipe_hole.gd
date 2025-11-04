@@ -1,0 +1,7 @@
+class_name PIPE_HOLE
+
+enum FLOW {NONE, IN, OUT}
+
+enum SIDE {LEFT,RIGHT,FRONT,BACK}
+
+enum FLOW_SIDE {LEFT,RIGHT,FRONT,BACK}

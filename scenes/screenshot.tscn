@@ -1,0 +1,55 @@
+[gd_scene load_steps=11 format=3 uid="uid://5rrj24ardan0"]
+
+[ext_resource type="PackedScene" uid="uid://budalrs7mutw" path="res://scenes/objects/all_side_cogs.tscn" id="1_pykqj"]
+[ext_resource type="PackedScene" uid="uid://dgo33x1xcvrcm" path="res://scenes/objects/all_side_shafts.tscn" id="2_6u5ov"]
+[ext_resource type="PackedScene" uid="uid://bvwcr8kwwagyd" path="res://scenes/objects/big_cog.tscn" id="3_htdo2"]
+[ext_resource type="PackedScene" uid="uid://bdtnucbfor1ro" path="res://scenes/objects/pump.tscn" id="4_xu2yw"]
+[ext_resource type="PackedScene" uid="uid://bk0pm5c1jsg05" path="res://scenes/objects/side_shaft_side_cogs.tscn" id="5_cxk03"]
+[ext_resource type="PackedScene" uid="uid://csar3ulv1h344" path="res://scenes/objects/two_side_pipe.tscn" id="6_lef8a"]
+[ext_resource type="PackedScene" uid="uid://24mum4f58bnt" path="res://scenes/objects/two_side_shafts.tscn" id="7_vfcc1"]
+[ext_resource type="PackedScene" uid="uid://k2ij4kikq42p" path="res://scenes/objects/watermill.tscn" id="8_l7rtt"]
+
+[sub_resource type="Sky" id="Sky_cq1j3"]
+
+[sub_resource type="Environment" id="Environment_uivd4"]
+background_mode = 1
+background_color = Color(1, 1, 1, 1)
+sky = SubResource("Sky_cq1j3")
+ambient_light_color = Color(1, 1, 1, 1)
+
+[node name="Screenshot" type="Node3D"]
+
+[node name="AllSideCogs" parent="." instance=ExtResource("1_pykqj")]
+visible = false
+
+[node name="AllSideShafts" parent="." instance=ExtResource("2_6u5ov")]
+visible = false
+
+[node name="BigCog" parent="." instance=ExtResource("3_htdo2")]
+visible = false
+
+[node name="Pump" parent="." instance=ExtResource("4_xu2yw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.415, 0, 0.245)
+visible = false
+
+[node name="SideShaftSideCogs" parent="." instance=ExtResource("5_cxk03")]
+visible = false
+
+[node name="TwoSidePipe" parent="." instance=ExtResource("6_lef8a")]
+visible = false
+
+[node name="TwoSideShafts" parent="." instance=ExtResource("7_vfcc1")]
+visible = false
+
+[node name="Watermill" parent="." instance=ExtResource("8_l7rtt")]
+transform = Transform3D(0.525, 0, 0, 0, 0.525, 0, 0, 0, 0.525, -0.55, 0, 0.055)
+visible = false
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.707107, 0.612372, -0.353553, 0, 0.5, 0.866025, 0.707107, -0.612372, 0.353553, -1, 2.49455, 1)
+environment = SubResource("Environment_uivd4")
+projection = 1
+size = 2.47
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 2.98023e-08, 1, 0, -1, 2.98023e-08, -11, 0, 0)

@@ -1,0 +1,3 @@
+class_name NEIGHBOURS
+
+enum SIDE {LEFT,RIGHT,FRONT,BACK}

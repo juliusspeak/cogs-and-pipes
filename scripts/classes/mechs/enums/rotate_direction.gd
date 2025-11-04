@@ -1,0 +1,3 @@
+class_name ROTATE_DIRECTION
+
+enum TYPE {CW, NONE, CCW}

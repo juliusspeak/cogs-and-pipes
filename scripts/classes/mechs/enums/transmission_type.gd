@@ -1,0 +1,2 @@
+class_name TRANSMISSION_TYPE
+enum TYPE {GEAR, SHAFT}

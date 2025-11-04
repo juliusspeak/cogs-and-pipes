@@ -1,0 +1,3 @@
+class_name TRANSMISSIONS
+
+enum SIDE {LEFT,RIGHT,FRONT,BACK, BIG}
