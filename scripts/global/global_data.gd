@@ -1,4 +1,4 @@
 extends Node
 
-var levelMapLoader: LevelMapLoader
+var levelMapController: LevelMapController
 var camera: Camera3D

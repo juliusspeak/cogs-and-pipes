@@ -2,11 +2,18 @@ extends Node3D
 
 var world_cell: Vector3
 var cell: Vector2i
-var current_building: int
+var current_building: int:
+	set(val):
+		current_building = val
+		update_plan()
+var build_rotation:int = 0
 
-	
+@export var plan: Node3D
+var plan_model: Node3D
+
 func _process(delta: float) -> void:
 	set_cell()
+	draw_plan()
 
 func set_cell() -> void:
 		var space_state: PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
@@ -32,5 +39,42 @@ func set_cell() -> void:
 			cell.y = yi
 
 func build() -> void:
-	GlobalData.levelMapLoader.current_lvl_map.map[cell.y][cell.x] = current_building
-	GlobalData.levelMapLoader.update_map()
+	var levelMapController = GlobalData.levelMapController
+	var current_lvl_map = levelMapController.current_lvl_map
+	
+	if current_lvl_map.blocked_cells.has(Vector2i(cell.y,cell.x)):
+		return
+	
+	current_lvl_map.map[cell.y][cell.x] = current_building
+	current_lvl_map.rotation[cell.y][cell.x] = build_rotation
+	levelMapController.update_map()
+	
+
+func update_plan() -> void:
+	for n in plan.get_children():
+		n.queue_free()
+		plan_model = null
+	
+	var res_link: String = BUILDING_RES.get_link(current_building)
+	if res_link != "":
+		var build = ResourceLoader.load(res_link).instantiate()
+		plan.add_child(build)
+		plan_model = build
+		plan_model.rotation_degrees.y += build_rotation
+
+
+func draw_plan() -> void:
+	if plan_model == null:
+		return
+	
+	plan_model.global_position = world_cell
+
+func rotate_build(val: int) -> void:
+	build_rotation += val
+	if build_rotation > 270:
+		build_rotation = 0
+	if build_rotation < -270:
+		build_rotation = 0
+	
+	if plan_model:
+		plan_model.rotation_degrees.y += val

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://5rrj24ardan0"]
+[gd_scene load_steps=12 format=3 uid="uid://5rrj24ardan0"]
 
 [ext_resource type="PackedScene" uid="uid://budalrs7mutw" path="res://scenes/objects/all_side_cogs.tscn" id="1_pykqj"]
 [ext_resource type="PackedScene" uid="uid://dgo33x1xcvrcm" path="res://scenes/objects/all_side_shafts.tscn" id="2_6u5ov"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://csar3ulv1h344" path="res://scenes/objects/two_side_pipe.tscn" id="6_lef8a"]
 [ext_resource type="PackedScene" uid="uid://24mum4f58bnt" path="res://scenes/objects/two_side_shafts.tscn" id="7_vfcc1"]
 [ext_resource type="PackedScene" uid="uid://k2ij4kikq42p" path="res://scenes/objects/watermill.tscn" id="8_l7rtt"]
+[ext_resource type="PackedScene" uid="uid://b60h3clshqlai" path="res://scenes/objects/corner_pipe.tscn" id="9_6u5ov"]
 
 [sub_resource type="Sky" id="Sky_cq1j3"]
 
@@ -53,3 +54,5 @@ size = 2.47
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 2.98023e-08, 1, 0, -1, 2.98023e-08, -11, 0, 0)
+
+[node name="CornerPipe" parent="." instance=ExtResource("9_6u5ov")]

@@ -1,11 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://cb8loo0axl83h"]
+[gd_scene load_steps=12 format=3 uid="uid://cb8loo0axl83h"]
 
 [ext_resource type="Script" uid="uid://cno83vhhe7vsw" path="res://scripts/global/builder.gd" id="1_hhp77"]
 [ext_resource type="PackedScene" uid="uid://cjjc13g44lmh1" path="res://scenes/ui/builder/build_button.tscn" id="2_3qjje"]
 [ext_resource type="Texture2D" uid="uid://ct8i1usimqc01" path="res://assets/images/ui/buildings/TWO_SIDE_PIPE.png" id="3_yl0tx"]
+[ext_resource type="Texture2D" uid="uid://b6l1ibblyakel" path="res://assets/images/ui/buildings/WATERMILL.png" id="4_plccr"]
+[ext_resource type="Texture2D" uid="uid://58g70i6lh076" path="res://assets/images/ui/buildings/ALL_SIDE_COGS.png" id="5_0f6h4"]
+[ext_resource type="Texture2D" uid="uid://bmachdvieorki" path="res://assets/images/ui/buildings/ALL_SIDE_SHAFTS.png" id="6_fnaxw"]
+[ext_resource type="Texture2D" uid="uid://h61k68ewy2jt" path="res://assets/images/ui/buildings/BIG_COG.png" id="7_k0b6n"]
+[ext_resource type="Texture2D" uid="uid://ckf7qn7hu7ng1" path="res://assets/images/ui/buildings/SIDE_SHAFT_SIDE_COGS.png" id="8_hu40i"]
+[ext_resource type="Texture2D" uid="uid://dl00pjb7mo5sg" path="res://assets/images/ui/buildings/TWO_SIDE_SHAFTS.png" id="9_shkpb"]
+[ext_resource type="Texture2D" uid="uid://b0wo5vk8635lt" path="res://assets/images/ui/buildings/PUMP.png" id="10_8hn5p"]
+[ext_resource type="Texture2D" uid="uid://paxdf74f00ct" path="res://assets/images/ui/buildings/CORNER_PIPE.png" id="11_0f6h4"]
 
-[node name="Builder" type="Node3D"]
+[node name="Builder" type="Node3D" node_paths=PackedStringArray("plan")]
 script = ExtResource("1_hhp77")
+plan = NodePath("plan")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchors_preset = 7
@@ -26,28 +35,42 @@ build_num = 1
 
 [node name="BuildButton2" parent="HBoxContainer" instance=ExtResource("2_3qjje")]
 layout_mode = 2
+icon = ExtResource("4_plccr")
 build_num = 2
 
 [node name="BuildButton3" parent="HBoxContainer" instance=ExtResource("2_3qjje")]
 layout_mode = 2
+icon = ExtResource("5_0f6h4")
 build_num = 3
 
 [node name="BuildButton4" parent="HBoxContainer" instance=ExtResource("2_3qjje")]
 layout_mode = 2
+icon = ExtResource("6_fnaxw")
 build_num = 4
 
 [node name="BuildButton5" parent="HBoxContainer" instance=ExtResource("2_3qjje")]
 layout_mode = 2
+icon = ExtResource("7_k0b6n")
 build_num = 5
 
 [node name="BuildButton6" parent="HBoxContainer" instance=ExtResource("2_3qjje")]
 layout_mode = 2
+icon = ExtResource("8_hu40i")
 build_num = 6
 
 [node name="BuildButton7" parent="HBoxContainer" instance=ExtResource("2_3qjje")]
 layout_mode = 2
+icon = ExtResource("9_shkpb")
 build_num = 7
 
 [node name="BuildButton8" parent="HBoxContainer" instance=ExtResource("2_3qjje")]
 layout_mode = 2
+icon = ExtResource("10_8hn5p")
 build_num = 8
+
+[node name="BuildButton9" parent="HBoxContainer" instance=ExtResource("2_3qjje")]
+layout_mode = 2
+icon = ExtResource("11_0f6h4")
+build_num = 9
+
+[node name="plan" type="Node3D" parent="."]

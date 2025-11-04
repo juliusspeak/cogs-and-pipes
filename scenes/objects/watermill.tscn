@@ -378,37 +378,35 @@ shadow_mesh = SubResource("ArrayMesh_wewq0")
 
 [node name="Watermill" type="Node3D" node_paths=PackedStringArray("r_transmission")]
 script = ExtResource("1_bs7jp")
-r_transmission = NodePath("mechs/cog_r")
+r_transmission = NodePath("cog_r")
 
-[node name="mechs" type="Node3D" parent="."]
-
-[node name="base" type="MeshInstance3D" parent="mechs"]
+[node name="base" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.16, 0, 0, 0, 0.5, 0, 0.16, 0)
 mesh = SubResource("ArrayMesh_3woi3")
 skeleton = NodePath("")
 
-[node name="top" type="MeshInstance3D" parent="mechs"]
+[node name="top" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.16, 0, 0, 0, 0.5, 0, 0.84, 0)
 mesh = SubResource("ArrayMesh_6uhye")
 skeleton = NodePath("")
 
-[node name="main_column" type="MeshInstance3D" parent="mechs"]
+[node name="main_column" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.0867177, 0, 0, 0, 0.320855, 0, 0, 0, 0.0867177, 0, 0.5, 0)
 mesh = SubResource("ArrayMesh_3808p")
 skeleton = NodePath("")
 
-[node name="upbase" type="MeshInstance3D" parent="mechs"]
+[node name="upbase" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.16, 0, 0, 0, 0.5, 0, 0.16, 0)
 mesh = SubResource("ArrayMesh_p3nwj")
 skeleton = NodePath("")
 
-[node name="supports_r" type="MeshInstance3D" parent="mechs"]
+[node name="supports_r" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.16, 0, 0, 0, 0.5, 0, 0.84, 0)
 mesh = SubResource("ArrayMesh_7dejh")
 skeleton = NodePath("")
 
-[node name="shaft_l" type="MeshInstance3D" parent="mechs"]
-transform = Transform3D(1.43945e-07, 0.4025, 0, -0.38139, 1.36379e-07, -0.129445, -0.129445, 4.62886e-08, 0.38139, 0.4, 0.6, 0)
+[node name="shaft_l" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.43945e-07, 0.4025, 0, -0.353329, 1.26345e-07, 0.193332, 0.193332, -6.91312e-08, 0.353329, 0.4, 0.6, 0)
 mesh = SubResource("ArrayMesh_0qppb")
 skeleton = NodePath("")
 script = ExtResource("1_swl05")
@@ -416,20 +414,20 @@ type = 1
 rotate_direction = 2
 rotate_speed = 0.5
 
-[node name="cog_r" type="MeshInstance3D" parent="mechs"]
-transform = Transform3D(-0.131828, 0, 0.38062, 0, 0.4025, 0, -0.38062, 0, -0.131828, -0.4, 0.6, 0)
+[node name="cog_r" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.194289, 0, -0.352856, 0, 0.4025, 0, 0.352856, 0, 0.194289, -0.4, 0.6, 0)
 mesh = SubResource("ArrayMesh_hdtjd")
 skeleton = NodePath("")
 script = ExtResource("1_swl05")
 rotate_direction = 0
 
-[node name="supports_l" type="MeshInstance3D" parent="mechs"]
+[node name="supports_l" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.16, 0, 0, 0, 0.5, 0, 0.84, 0)
 mesh = SubResource("ArrayMesh_ruorb")
 skeleton = NodePath("")
 
-[node name="Cylinder_001" type="MeshInstance3D" parent="mechs"]
-transform = Transform3D(3.57628e-07, 1, 0, 0.922707, -3.29996e-07, -0.386746, -0.386746, 1.38316e-07, -0.922707, 1.5, 0.6, 0)
+[node name="Cylinder_001" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.57628e-07, 1, 0, 0.339324, -1.21357e-07, -0.941188, -0.941188, 3.36607e-07, -0.339324, 1.5, 0.6, 0)
 mesh = SubResource("ArrayMesh_klddv")
 skeleton = NodePath("")
 script = ExtResource("1_swl05")
@@ -437,8 +435,8 @@ type = 1
 rotate_direction = 2
 rotate_speed = 0.5
 
-[node name="Cylinder_002" type="MeshInstance3D" parent="mechs"]
-transform = Transform3D(3.57628e-07, 2, 0, 0.824629, -5.8984e-07, -0.566363, -0.566363, 4.05104e-07, -0.824629, 0.9, 0.6, 0)
+[node name="Cylinder_002" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.57628e-07, 2, 0, 0.140692, -1.00638e-07, -0.990453, -0.990453, 7.08449e-07, -0.140692, 0.9, 0.6, 0)
 mesh = SubResource("ArrayMesh_e33sa")
 skeleton = NodePath("")
 script = ExtResource("1_swl05")

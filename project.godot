@@ -19,6 +19,7 @@ config/features=PackedStringArray("4.4", "Forward Plus")
 GlobalData="*res://scripts/global/GlobalData.tscn"
 Builder="*res://scripts/global/builder.tscn"
 InputControl="*res://scripts/global/InputControl.tscn"
+Util="*res://scripts/global/util.gd"
 
 [display]
 

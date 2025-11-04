@@ -68,6 +68,9 @@ func _process(delta: float) -> void:
 	target_pos = lerp(target_pos, target_pos + move_dir, 0.1)
 
 func _input(event):
+	if Builder.current_building != 0:
+		return
+	
 	if event is InputEventMouseMotion and Input.is_mouse_button_pressed(MOUSE_BUTTON_MIDDLE):
 		target_rotation_y -= event.relative.x * 0.01
 		

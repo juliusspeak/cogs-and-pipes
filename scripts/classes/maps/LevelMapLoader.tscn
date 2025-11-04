@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://crbitcfcq4wrn"]
-
-[ext_resource type="Script" uid="uid://dux2u7uwgsfiy" path="res://scripts/classes/maps/LevelMapLoader.gd" id="1_inco1"]
-
-[node name="LevelMapLoader" type="Node3D"]
-script = ExtResource("1_inco1")
