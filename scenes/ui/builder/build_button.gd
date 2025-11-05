@@ -17,7 +17,10 @@ extends Button
 "CORNER_COGS",
 "CORNER_SHAFTS",
 "CORNER_SHAFT_COG",
-"CORNER_COG_SHAFT",) var build_num: int
+"CORNER_COG_SHAFT",
+"BLOCK",
+"TWO_SIDE_PIPE_WITH_COGS",
+"THREE_SIDE_PIPE",) var build_num: int
 var build_res_keys = BUILDING_RES.LINK.keys()
 
 

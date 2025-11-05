@@ -48,6 +48,31 @@ class_name LevelMap
 ]
 
 @export var blocked_cells: Array[Vector2i] = [Vector2i(9,0), Vector2i(11,0), Vector2i(9,19)]
+@export var win_cells: Array[Vector2i] = [Vector2i(9,19)]
+@export var build_limit: Dictionary = {
+	"NOONE": 0,
+	"TWO_SIDE_PIPE": 0,
+	"WATERMILL": 0,
+	"ALL_SIDE_COGS": 0,
+	"ALL_SIDE_SHAFTS": 0,
+	"BIG_COG": 0,
+	"SIDE_SHAFT_SIDE_COGS": 0,
+	"TWO_SIDE_SHAFTS": 0,
+	"PUMP": 0,
+	"CORNER_PIPE": 0,
+	"TWO_SIDE_COGS": 0,
+	"SIDE_COG_SIDE_SHAFTS": 0,
+	"TWO_SIDE_COG_SHAFT": 0,
+	"CORNER_COGS": 0,
+	"CORNER_SHAFTS": 0,
+	"CORNER_SHAFT_COG": 0,
+	"CORNER_COG_SHAFT": 0,
+	"BLOCK": 0,
+	"TWO_SIDE_PIPE_WITH_COGS": 0,
+	"THREE_SIDE_PIPE": 0,
+	}
+
+var passed: bool = false
 
 func add_blocked_cells() -> void:
 	var x: int = 0

@@ -19,6 +19,8 @@ const LINK = {
 	CORNER_SHAFT_COG = "res://scenes/objects/corner_shaft_cog.tscn",
 	CORNER_COG_SHAFT = "res://scenes/objects/corner_cog_shaft.tscn",
 	BLOCK = "res://scenes/objects/block.tscn",
+	TWO_SIDE_PIPE_WITH_COGS = "res://scenes/objects/two_side_pipe_with_cogs.tscn",
+	THREE_SIDE_PIPE = "res://scenes/objects/three_side_pipe.tscn",
 }
 
 static func get_link(bld_num) -> String:
@@ -60,5 +62,9 @@ static func get_link(bld_num) -> String:
 					res_link = BUILDING_RES.LINK.CORNER_COG_SHAFT
 				17:
 					res_link = BUILDING_RES.LINK.BLOCK
+				18:
+					res_link = BUILDING_RES.LINK.TWO_SIDE_PIPE_WITH_COGS
+				19:
+					res_link = BUILDING_RES.LINK.THREE_SIDE_PIPE
 					
 	return res_link

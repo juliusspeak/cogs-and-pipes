@@ -260,12 +260,11 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_4r6tn")
 
-[node name="Pump" type="Node3D" node_paths=PackedStringArray("water_particle_r", "f_transmission", "b_transmission")]
+[node name="Pump" type="Node3D" node_paths=PackedStringArray("water_particle_r", "f_transmission")]
 script = ExtResource("1_1q6ie")
 water_particle_r = NodePath("Water_r")
 hole_r = true
 f_transmission = NodePath("cog_f")
-b_transmission = NodePath("")
 
 [node name="base" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.16, 0, 0, 0, 0.5, 0, 0.16, 0)

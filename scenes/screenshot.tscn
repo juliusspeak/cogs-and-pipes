@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://5rrj24ardan0"]
+[gd_scene load_steps=22 format=3 uid="uid://5rrj24ardan0"]
 
 [ext_resource type="PackedScene" uid="uid://budalrs7mutw" path="res://scenes/objects/all_side_cogs.tscn" id="1_pykqj"]
 [ext_resource type="PackedScene" uid="uid://dgo33x1xcvrcm" path="res://scenes/objects/all_side_shafts.tscn" id="2_6u5ov"]
@@ -16,6 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://cojr1cw7hdejd" path="res://scenes/objects/corner_cog_shaft.tscn" id="14_uivd4"]
 [ext_resource type="PackedScene" uid="uid://b6ne2c5u32p3j" path="res://scenes/objects/corner_shafts.tscn" id="15_7ialk"]
 [ext_resource type="PackedScene" uid="uid://dm5bij5mye81c" path="res://scenes/objects/corner_shaft_cog.tscn" id="16_ocfnc"]
+[ext_resource type="PackedScene" uid="uid://ql8bofj2ox4m" path="res://scenes/objects/two_side_pipe_with_cogs.tscn" id="17_uivd4"]
+[ext_resource type="PackedScene" uid="uid://coofws2smc40y" path="res://scenes/objects/block.tscn" id="18_7ialk"]
+[ext_resource type="PackedScene" uid="uid://da121pnsm1fep" path="res://scenes/objects/three_side_pipe.tscn" id="19_ocfnc"]
 
 [sub_resource type="Sky" id="Sky_cq1j3"]
 
@@ -90,3 +93,13 @@ visible = false
 
 [node name="CornerShaftCog" parent="." instance=ExtResource("16_ocfnc")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+visible = false
+
+[node name="TwoSidePipe2" parent="." instance=ExtResource("17_uivd4")]
+visible = false
+
+[node name="Block" parent="." instance=ExtResource("18_7ialk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.425, 0)
+visible = false
+
+[node name="ThreeSidePipe" parent="." instance=ExtResource("19_ocfnc")]

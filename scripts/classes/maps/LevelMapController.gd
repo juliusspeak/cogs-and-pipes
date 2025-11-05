@@ -115,12 +115,13 @@ func start_transmission(arr: Array) -> void:
 		arr[0].set_rotate_dir(ROTATE_DIRECTION.TYPE.NONE)
 		return
 		
+		
 	if arr[0].rotate_direction == ROTATE_DIRECTION.TYPE.NONE and arr[1].rotate_direction != ROTATE_DIRECTION.TYPE.NONE:
 		set_opposite_dir_from_to(arr[1], arr[0])
 		
 	elif arr[0].rotate_direction != ROTATE_DIRECTION.TYPE.NONE and arr[1].rotate_direction == ROTATE_DIRECTION.TYPE.NONE:
 		set_opposite_dir_from_to(arr[0], arr[1])
-
+		
 func set_opposite_dir_from_to(from: Transmission, to: Transmission) -> void:
 		if from.rotate_direction == ROTATE_DIRECTION.TYPE.CW:
 			to.set_rotate_dir(ROTATE_DIRECTION.TYPE.CCW)
@@ -133,12 +134,22 @@ func update_transmissions() -> void:
 	need_visit.append(get_building_by_pos(Vector2i(0,9)))
 	
 	while need_visit.size() > 0:
-		var building = need_visit.pop_front()
+		var building: Building = need_visit.pop_front()
+		
 		visited.append(building)
 		if building != null:
-			for n in building.neighbours:
-					var neighbour = building.neighbours[n]
+			for side in building.neighbours:
+				var count: int = building.neighbours.keys()[side]
+				var has_transmission_on_side: bool = false
+				if building.transmissions[count] != null:
+					has_transmission_on_side = true
+				if building.big_transmission != null:
+					has_transmission_on_side = true
+					
+				if has_transmission_on_side == true:
+					var neighbour = building.neighbours[side]
 					if !visited.has(neighbour):
+						
 						need_visit.append(neighbour)
 						
 						var bond_transmissions = has_transmission_bond(building,neighbour)
@@ -176,15 +187,6 @@ func check_pumping(pump: Pipe, dir: PIPE_HOLE.SIDE):
 func set_pipe_particle(pipe: Pipe, dir: PIPE_HOLE.SIDE, status: bool) -> void:
 	pipe.particles[dir].emitting = status
 
-func get_opposite_pipe_dir(dir):
-	if dir == PIPE_HOLE.SIDE.RIGHT:
-		return PIPE_HOLE.SIDE.LEFT
-	elif dir == PIPE_HOLE.SIDE.LEFT:
-		return PIPE_HOLE.SIDE.RIGHT
-	elif dir == PIPE_HOLE.SIDE.FRONT:
-		return PIPE_HOLE.SIDE.BACK
-	elif dir == PIPE_HOLE.SIDE.BACK:
-		return PIPE_HOLE.SIDE.FRONT
 
 func set_pipe_flow(pipe: Pipe, dir:PIPE_HOLE.SIDE, type: PIPE_HOLE.FLOW) -> void:
 	var particles: bool
@@ -222,7 +224,7 @@ func update_flows() -> void:
 			
 			
 			if pump.neighbours[neighbour_dir] != null and pump.neighbours[neighbour_dir] is Pipe:
-				var opposite: PIPE_HOLE.SIDE = get_opposite_pipe_dir(dir)
+				var opposite: PIPE_HOLE.SIDE = Util.get_opposite_dir(dir)
 				var pipe: Pipe = pump.neighbours[neighbour_dir]
 				
 				if pipe.holes[opposite] == true:
@@ -235,17 +237,17 @@ func update_flows() -> void:
 		var pipe = need_visit.pop_front()
 		visited.append(pipe)
 		
-		for h in pipe.holes:
-			if pipe.holes[h] == true and pipe.flows[h] != PIPE_HOLE.FLOW.IN:
-				set_pipe_flow(pipe,h,PIPE_HOLE.FLOW.OUT)
+		for side in pipe.holes:
+			if pipe.holes[side] == true and pipe.flows[side] != PIPE_HOLE.FLOW.IN:
+				set_pipe_flow(pipe,side,PIPE_HOLE.FLOW.OUT)
 				var neighbour
 				
-				var count: int = pipe.neighbours.keys()[h]
+				var count: int = pipe.neighbours.keys()[side]
 				neighbour = pipe.neighbours[count]
 				
 				if neighbour != null and neighbour is Pipe:
 					
-					var opposite: PIPE_HOLE.SIDE = get_opposite_pipe_dir(h)
+					var opposite: PIPE_HOLE.SIDE = Util.get_opposite_dir(side)
 					var new_pipe: Pipe = neighbour
 					
 					if new_pipe.holes[opposite] == true:

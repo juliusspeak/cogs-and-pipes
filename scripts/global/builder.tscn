@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cb8loo0axl83h"]
+[gd_scene load_steps=20 format=3 uid="uid://cb8loo0axl83h"]
 
 [ext_resource type="Script" uid="uid://cno83vhhe7vsw" path="res://scripts/global/builder.gd" id="1_hhp77"]
 [ext_resource type="PackedScene" uid="uid://cjjc13g44lmh1" path="res://scenes/ui/builder/build_button.tscn" id="2_3qjje"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://dl00pjb7mo5sg" path="res://assets/images/ui/buildings/TWO_SIDE_SHAFTS.png" id="9_shkpb"]
 [ext_resource type="Texture2D" uid="uid://b0wo5vk8635lt" path="res://assets/images/ui/buildings/PUMP.png" id="10_8hn5p"]
 [ext_resource type="Texture2D" uid="uid://paxdf74f00ct" path="res://assets/images/ui/buildings/CORNER_PIPE.png" id="11_0f6h4"]
+[ext_resource type="Texture2D" uid="uid://dnh200qhmxwyh" path="res://assets/images/ui/buildings/TWO_SIDE_PIPE_WITH_COGS.png" id="16_8u2dw"]
 
 [node name="Builder" type="Node3D" node_paths=PackedStringArray("plan")]
 script = ExtResource("1_hhp77")
@@ -99,6 +100,16 @@ build_num = 11
 layout_mode = 2
 icon = ExtResource("4_plccr")
 build_num = 2
+
+[node name="BuildButton17" parent="HBoxContainer" instance=ExtResource("2_3qjje")]
+layout_mode = 2
+icon = ExtResource("16_8u2dw")
+build_num = 18
+
+[node name="BuildButton18" parent="HBoxContainer" instance=ExtResource("2_3qjje")]
+layout_mode = 2
+icon = ExtResource("16_8u2dw")
+build_num = 19
 
 [node name="BuildButton" parent="HBoxContainer" instance=ExtResource("2_3qjje")]
 layout_mode = 2

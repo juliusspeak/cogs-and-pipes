@@ -45,7 +45,7 @@ resource_name = "wood"
 cull_mode = 2
 albedo_color = Color(0.289693, 0.0912442, 0, 1)
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_h3hs7"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_jyai1"]
 _surfaces = [{
 "aabb": AABB(-1, 5.96046e-08, -1, 2, 1, 2),
 "format": 34896613377,
@@ -75,7 +75,7 @@ _surfaces = [{
 "vertex_data": PackedByteArray("CMD///Y////2P///CMD///Y////2P///CMD//wjA/////wAAAABU1f//EYD//1TV//8RgAAAVNX//wAA//9U1QAAAAD//1TVAAARgAAAVNUAABGA//9U1QAAAAAAAFTVAAAAAAAA/7///wAA////v///AAAAAP+/AAAAAP///78AAAAAAAD/////EYAAAP//AAARgAAA/////wAAAAD///Y///8IwKrpAAARgAAAqun2P///9j+q6QAAEYD//6rp9j////Y//////xGAAAD//wjA///2P///AAARgAAA//8IwP//9j+q6f//EYD//6rpCMD//wjAqun//xGAAACq6QjA//8IwP//AAARgP/////2P///CMD/////EYD///////8AAP///78AABGA////v///EYD///+/AAAAAP///7//f/+//3//v/9//7//f/+/qiqqKqoqqiqqKqoqqiqqKlTVVNVU1VTVVNVU1VTVVNUAAP9/AAD/fwAA/38AAP9//7//v/+//7//v/+//7//vwlqBLUJagS1CWoEtQlqBLX/f4Ha/3+B2v9/gdr/f4HaBDX2FQQ19hUENfYVBDX2Ff9/fKX/f3yl/398pf9/fKX/////////////////////")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_h3hs7")
+shadow_mesh = SubResource("ArrayMesh_jyai1")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mh1vm"]
 resource_name = "brass"
