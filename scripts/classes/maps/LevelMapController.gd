@@ -6,7 +6,8 @@ var current_lvl_map: LevelMap
 func _ready() -> void:
 	GlobalData.levelMapController = self
 	load_lvl(ResourceLoader.load("res://assets/maps/0.tres"))
-
+	current_lvl_map.add_blocked_cells()
+	
 func clear_lvl() -> void:
 	for n in get_children():
 		n.free()
@@ -17,8 +18,8 @@ func load_lvl(lvl_map: LevelMap) -> void:
 	build_map()
 	
 	update_neighbours()
-	
 	update_transmissions()
+	update_flows()
 
 func update_neighbours() -> void:
 	for b in get_children():
@@ -59,6 +60,19 @@ func get_building_by_pos(pos: Vector2i) -> Building:
 		if b.pos_in_map == pos:
 			bld = b
 	return bld
+	
+func get_building_by_res_id(res_id: int) -> Array:
+	var arr: Array
+	var x: int = 0
+	var y: int = 0
+	for row in current_lvl_map.map:
+		for column in row:
+			if current_lvl_map.map[x][y] == res_id:
+				arr.append(get_building_by_pos(Vector2i(y,x)))
+			y += 1
+		x += 1
+		y = 0
+	return arr
 
 func has_transmission_bond(b1: Building, b2: Building) -> Array:
 	var arr: Array = []
@@ -114,8 +128,8 @@ func set_opposite_dir_from_to(from: Transmission, to: Transmission) -> void:
 			to.set_rotate_dir(ROTATE_DIRECTION.TYPE.CW)
 
 func update_transmissions() -> void:
-	var need_visit: Array = []
-	var visited: Array = []
+	var need_visit: Array
+	var visited: Array
 	need_visit.append(get_building_by_pos(Vector2i(0,9)))
 	
 	while need_visit.size() > 0:
@@ -131,3 +145,43 @@ func update_transmissions() -> void:
 						
 						if bond_transmissions != []:
 							start_transmission(bond_transmissions)
+
+func def_pump_dir(pump: Pipe):
+	for h in pump.holes:
+		if pump.holes[h] == true:
+			return h
+func check_pumping(pump: Pipe, dir: PIPE_HOLE.SIDE):
+	match dir:
+		0:
+			if pump.b_transmission.rotate_direction == ROTATE_DIRECTION.TYPE.CCW:
+				return true
+			else:
+				return false
+		1:
+			if pump.l_transmission.rotate_direction == ROTATE_DIRECTION.TYPE.CCW:
+				return true
+			else:
+				return false
+		2:
+			if pump.f_transmission.rotate_direction == ROTATE_DIRECTION.TYPE.CCW:
+				return true
+			else:
+				return false
+		3:
+			if pump.r_transmission.rotate_direction == ROTATE_DIRECTION.TYPE.CCW:
+				return true
+			else:
+				return false
+
+func set_pipe_particle(pipe: Pipe, dir: PIPE_HOLE.SIDE, status: bool) -> void:
+	pipe.particles[dir].emitting = status
+
+func update_flows() -> void:
+	var need_visit: Array
+	var pumps: Array = get_building_by_res_id(8)
+	for pump: Pipe in pumps:
+		var dir: PIPE_HOLE.SIDE = def_pump_dir(pump)
+		if check_pumping(pump,dir):
+			set_pipe_particle(pump, dir, true)
+		else:
+			set_pipe_particle(pump, dir, false)

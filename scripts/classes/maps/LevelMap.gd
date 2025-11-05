@@ -47,4 +47,15 @@ class_name LevelMap
 	[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], #19
 ]
 
-@export var blocked_cells: Array[Vector2i] = [Vector2i(9,0), Vector2i(9,19)]
+@export var blocked_cells: Array[Vector2i] = [Vector2i(9,0), Vector2i(11,0), Vector2i(9,19)]
+
+func add_blocked_cells() -> void:
+	var x: int = 0
+	var y: int = 0
+	for row in map:
+		for column in row:
+			if map[x][y] == 17:
+				blocked_cells.append(Vector2i(x,y))
+			y += 1
+		x += 1
+		y = 0

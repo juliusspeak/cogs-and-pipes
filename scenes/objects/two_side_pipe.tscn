@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=4 uid="uid://csar3ulv1h344"]
+[gd_scene load_steps=12 format=4 uid="uid://csar3ulv1h344"]
 
 [ext_resource type="Script" uid="uid://dwvrkbktbgdxc" path="res://scripts/classes/mechs/pipe.gd" id="1_5bs53"]
+[ext_resource type="PackedScene" uid="uid://b30gy2uqc57xt" path="res://scenes/particles/water.tscn" id="2_bp6ru"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3j42s"]
 resource_name = "stone"
@@ -117,10 +118,12 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_uifdc")
 
-[node name="TwoSidePipe" type="Node3D"]
+[node name="TwoSidePipe" type="Node3D" node_paths=PackedStringArray("water_particle_l", "water_particle_r")]
 script = ExtResource("1_5bs53")
-holes_l = true
-holes_r = true
+water_particle_l = NodePath("Water_l")
+water_particle_r = NodePath("Water_r")
+hole_l = true
+hole_r = true
 
 [node name="base" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.16, 0, 0, 0, 0.5, 0, 0.16, 0)
@@ -136,3 +139,9 @@ skeleton = NodePath("")
 transform = Transform3D(3.57628e-07, -2.03166, 0, 1, 7.2658e-07, 0, 0, 0, 1, 0, 0.576664, 0)
 mesh = SubResource("ArrayMesh_j7u1k")
 skeleton = NodePath("")
+
+[node name="Water_r" parent="." instance=ExtResource("2_bp6ru")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, 0.6, 0)
+
+[node name="Water_l" parent="." instance=ExtResource("2_bp6ru")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0.6, 0)

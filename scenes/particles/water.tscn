@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://b30gy2uqc57xt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tnasi"]
+transparency = 1
+albedo_color = Color(0, 0.333333, 1, 0.545098)
+
+[sub_resource type="SphereMesh" id="SphereMesh_tnasi"]
+radius = 0.05
+height = 0.1
+radial_segments = 6
+rings = 3
+
+[node name="Water" type="CPUParticles3D"]
+material_override = SubResource("StandardMaterial3D_tnasi")
+emitting = false
+amount = 50
+mesh = SubResource("SphereMesh_tnasi")
+direction = Vector3(0, 1, 0)
+spread = 32.27
+gravity = Vector3(0, -17.105, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 3.0
+scale_amount_min = 0.5
+scale_amount_max = 1.5

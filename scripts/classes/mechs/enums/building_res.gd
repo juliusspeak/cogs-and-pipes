@@ -10,7 +10,15 @@ const LINK = {
 	SIDE_SHAFT_SIDE_COGS = "res://scenes/objects/side_shaft_side_cogs.tscn",
 	TWO_SIDE_SHAFTS = "res://scenes/objects/two_side_shafts.tscn",
 	PUMP = "res://scenes/objects/pump.tscn",
-	CORNER_PIPE = "res://scenes/objects/corner_pipe.tscn"
+	CORNER_PIPE = "res://scenes/objects/corner_pipe.tscn",
+	TWO_SIDE_COGS = "res://scenes/objects/two_side_cogs.tscn",
+	SIDE_COG_SIDE_SHAFTS = "res://scenes/objects/side_cog_side_shafts.tscn",
+	TWO_SIDE_COG_SHAFT = "res://scenes/objects/two_side_cog_shaft.tscn",
+	CORNER_COGS = "res://scenes/objects/corner_cogs.tscn",
+	CORNER_SHAFTS = "res://scenes/objects/corner_shafts.tscn",
+	CORNER_SHAFT_COG = "res://scenes/objects/corner_shaft_cog.tscn",
+	CORNER_COG_SHAFT = "res://scenes/objects/corner_cog_shaft.tscn",
+	BLOCK = "res://scenes/objects/block.tscn",
 }
 
 static func get_link(bld_num) -> String:
@@ -36,4 +44,21 @@ static func get_link(bld_num) -> String:
 					res_link = BUILDING_RES.LINK.PUMP
 				9:
 					res_link = BUILDING_RES.LINK.CORNER_PIPE
+				10:
+					res_link = BUILDING_RES.LINK.TWO_SIDE_COGS
+				11:
+					res_link = BUILDING_RES.LINK.SIDE_COG_SIDE_SHAFTS
+				12:
+					res_link = BUILDING_RES.LINK.TWO_SIDE_COG_SHAFT
+				13:
+					res_link = BUILDING_RES.LINK.CORNER_COGS
+				14:
+					res_link = BUILDING_RES.LINK.CORNER_SHAFTS
+				15:
+					res_link = BUILDING_RES.LINK.CORNER_SHAFT_COG
+				16:
+					res_link = BUILDING_RES.LINK.CORNER_COG_SHAFT
+				17:
+					res_link = BUILDING_RES.LINK.BLOCK
+					
 	return res_link

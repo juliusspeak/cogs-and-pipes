@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://5rrj24ardan0"]
+[gd_scene load_steps=19 format=3 uid="uid://5rrj24ardan0"]
 
 [ext_resource type="PackedScene" uid="uid://budalrs7mutw" path="res://scenes/objects/all_side_cogs.tscn" id="1_pykqj"]
 [ext_resource type="PackedScene" uid="uid://dgo33x1xcvrcm" path="res://scenes/objects/all_side_shafts.tscn" id="2_6u5ov"]
@@ -9,6 +9,13 @@
 [ext_resource type="PackedScene" uid="uid://24mum4f58bnt" path="res://scenes/objects/two_side_shafts.tscn" id="7_vfcc1"]
 [ext_resource type="PackedScene" uid="uid://k2ij4kikq42p" path="res://scenes/objects/watermill.tscn" id="8_l7rtt"]
 [ext_resource type="PackedScene" uid="uid://b60h3clshqlai" path="res://scenes/objects/corner_pipe.tscn" id="9_6u5ov"]
+[ext_resource type="PackedScene" uid="uid://dfsomf01r7kri" path="res://scenes/objects/two_side_cogs.tscn" id="10_htdo2"]
+[ext_resource type="PackedScene" uid="uid://clorxxs7rs7pk" path="res://scenes/objects/side_cog_side_shafts.tscn" id="11_xu2yw"]
+[ext_resource type="PackedScene" uid="uid://bkhgqkimwnf5j" path="res://scenes/objects/two_side_cog_shaft.tscn" id="12_cxk03"]
+[ext_resource type="PackedScene" uid="uid://0whl82wg13jk" path="res://scenes/objects/corner_cogs.tscn" id="13_cq1j3"]
+[ext_resource type="PackedScene" uid="uid://cojr1cw7hdejd" path="res://scenes/objects/corner_cog_shaft.tscn" id="14_uivd4"]
+[ext_resource type="PackedScene" uid="uid://b6ne2c5u32p3j" path="res://scenes/objects/corner_shafts.tscn" id="15_7ialk"]
+[ext_resource type="PackedScene" uid="uid://dm5bij5mye81c" path="res://scenes/objects/corner_shaft_cog.tscn" id="16_ocfnc"]
 
 [sub_resource type="Sky" id="Sky_cq1j3"]
 
@@ -34,6 +41,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.415, 0, 0.245)
 visible = false
 
 [node name="SideShaftSideCogs" parent="." instance=ExtResource("5_cxk03")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
 visible = false
 
 [node name="TwoSidePipe" parent="." instance=ExtResource("6_lef8a")]
@@ -46,6 +54,9 @@ visible = false
 transform = Transform3D(0.525, 0, 0, 0, 0.525, 0, 0, 0, 0.525, -0.55, 0, 0.055)
 visible = false
 
+[node name="CornerPipe" parent="." instance=ExtResource("9_6u5ov")]
+visible = false
+
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.707107, 0.612372, -0.353553, 0, 0.5, 0.866025, 0.707107, -0.612372, 0.353553, -1, 2.49455, 1)
 environment = SubResource("Environment_uivd4")
@@ -55,4 +66,27 @@ size = 2.47
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 2.98023e-08, 1, 0, -1, 2.98023e-08, -11, 0, 0)
 
-[node name="CornerPipe" parent="." instance=ExtResource("9_6u5ov")]
+[node name="AllSideCogs2" parent="." instance=ExtResource("10_htdo2")]
+visible = false
+
+[node name="AllSideShafts2" parent="." instance=ExtResource("11_xu2yw")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+visible = false
+
+[node name="AllSideCogs3" parent="." instance=ExtResource("12_cxk03")]
+visible = false
+
+[node name="CornerCogs" parent="." instance=ExtResource("13_cq1j3")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+visible = false
+
+[node name="CornerCogShaft" parent="." instance=ExtResource("14_uivd4")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+visible = false
+
+[node name="CornerShafts" parent="." instance=ExtResource("15_7ialk")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+visible = false
+
+[node name="CornerShaftCog" parent="." instance=ExtResource("16_ocfnc")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)

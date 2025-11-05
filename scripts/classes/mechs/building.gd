@@ -106,7 +106,26 @@ func set_neighbours() -> void:
 	r_neighbour = lvlMapControl.get_building_by_pos(Vector2i(x+1,y))
 	b_neighbour = lvlMapControl.get_building_by_pos(Vector2i(x,y+1))
 	update_dicts()
-	
+
+func rotate_vals_in_sides(dict: Dictionary, dir:ROTATE_DIRECTION.TYPE) -> Dictionary:
+	var new_dict: Dictionary
+	match dir:
+		ROTATE_DIRECTION.TYPE.CW:
+			new_dict = {
+				NEIGHBOURS.SIDE.LEFT: dict[NEIGHBOURS.SIDE.BACK],
+				NEIGHBOURS.SIDE.FRONT: dict[NEIGHBOURS.SIDE.LEFT],
+				NEIGHBOURS.SIDE.RIGHT: dict[NEIGHBOURS.SIDE.FRONT],
+				NEIGHBOURS.SIDE.BACK: dict[NEIGHBOURS.SIDE.RIGHT],
+			}
+		ROTATE_DIRECTION.TYPE.CCW:
+			new_dict = {
+				NEIGHBOURS.SIDE.LEFT: dict[NEIGHBOURS.SIDE.FRONT],
+				NEIGHBOURS.SIDE.FRONT: dict[NEIGHBOURS.SIDE.RIGHT],
+				NEIGHBOURS.SIDE.RIGHT: dict[NEIGHBOURS.SIDE.BACK],
+				NEIGHBOURS.SIDE.BACK: dict[NEIGHBOURS.SIDE.LEFT],
+			}
+	return new_dict
+
 func rotate_build(val: int) -> void:
 	var count: int = abs(int(val / 90))
 	for i in count:
@@ -117,23 +136,14 @@ func rotate_build(val: int) -> void:
 		var new_b_t
 		
 		if val > 0:
-			new_neighbours = {
-				NEIGHBOURS.SIDE.LEFT: neighbours[NEIGHBOURS.SIDE.BACK],
-				NEIGHBOURS.SIDE.FRONT: neighbours[NEIGHBOURS.SIDE.LEFT],
-				NEIGHBOURS.SIDE.RIGHT: neighbours[NEIGHBOURS.SIDE.FRONT],
-				NEIGHBOURS.SIDE.BACK: neighbours[NEIGHBOURS.SIDE.RIGHT],
-			}
+			new_neighbours = rotate_vals_in_sides(neighbours,ROTATE_DIRECTION.TYPE.CW)
+			
 			new_l_t = f_transmission
 			new_f_t = r_transmission
 			new_r_t = b_transmission
 			new_b_t = l_transmission
 		else:
-			new_neighbours = {
-				NEIGHBOURS.SIDE.LEFT: neighbours[NEIGHBOURS.SIDE.FRONT],
-				NEIGHBOURS.SIDE.FRONT: neighbours[NEIGHBOURS.SIDE.RIGHT],
-				NEIGHBOURS.SIDE.RIGHT: neighbours[NEIGHBOURS.SIDE.BACK],
-				NEIGHBOURS.SIDE.BACK: neighbours[NEIGHBOURS.SIDE.LEFT],
-			}
+			new_neighbours = rotate_vals_in_sides(neighbours,ROTATE_DIRECTION.TYPE.CCW)
 			new_l_t = b_transmission
 			new_f_t = l_transmission
 			new_r_t = f_transmission
