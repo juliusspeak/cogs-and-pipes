@@ -111,3 +111,10 @@ func rotate_build(val: int) -> void:
 	water_particle_r = particles[PIPE_HOLE.SIDE.RIGHT]
 	water_particle_b = particles[PIPE_HOLE.SIDE.BACK]
 	update_dicts()
+
+func sync_pipe_exports(pipe: Pipe) -> void:
+	pipe.flow_l = pipe.flows[PIPE_HOLE.SIDE.LEFT]
+	pipe.flow_f = pipe.flows[PIPE_HOLE.SIDE.FRONT]
+	pipe.flow_r = pipe.flows[PIPE_HOLE.SIDE.RIGHT]
+	pipe.flow_b = pipe.flows[PIPE_HOLE.SIDE.BACK]
+	pipe.update_dicts()

@@ -176,12 +176,78 @@ func check_pumping(pump: Pipe, dir: PIPE_HOLE.SIDE):
 func set_pipe_particle(pipe: Pipe, dir: PIPE_HOLE.SIDE, status: bool) -> void:
 	pipe.particles[dir].emitting = status
 
+func get_opposite_pipe_dir(dir):
+	if dir == PIPE_HOLE.SIDE.RIGHT:
+		return PIPE_HOLE.SIDE.LEFT
+	elif dir == PIPE_HOLE.SIDE.LEFT:
+		return PIPE_HOLE.SIDE.RIGHT
+	elif dir == PIPE_HOLE.SIDE.FRONT:
+		return PIPE_HOLE.SIDE.BACK
+	elif dir == PIPE_HOLE.SIDE.BACK:
+		return PIPE_HOLE.SIDE.FRONT
+
+func set_pipe_flow(pipe: Pipe, dir:PIPE_HOLE.SIDE, type: PIPE_HOLE.FLOW) -> void:
+	var particles: bool
+	if type == PIPE_HOLE.FLOW.OUT:
+		particles = true
+	else:
+		particles = false
+	pipe.flows[dir] = type
+	set_pipe_particle(pipe, dir, particles)
+	pipe.sync_pipe_exports(pipe)
+
+func pipe_dir_to_neighbour_dir(dir: PIPE_HOLE.SIDE):
+	match dir:
+		PIPE_HOLE.SIDE.LEFT:
+			return NEIGHBOURS.SIDE.LEFT
+		PIPE_HOLE.SIDE.FRONT:
+			return NEIGHBOURS.SIDE.FRONT
+		PIPE_HOLE.SIDE.RIGHT:
+			return NEIGHBOURS.SIDE.RIGHT
+		PIPE_HOLE.SIDE.BACK:
+			return NEIGHBOURS.SIDE.BACK
+
+
 func update_flows() -> void:
 	var need_visit: Array
+	var visited: Array
+	
 	var pumps: Array = get_building_by_res_id(8)
 	for pump: Pipe in pumps:
 		var dir: PIPE_HOLE.SIDE = def_pump_dir(pump)
 		if check_pumping(pump,dir):
-			set_pipe_particle(pump, dir, true)
+			set_pipe_flow(pump,dir,PIPE_HOLE.FLOW.OUT)
+			
+			var neighbour_dir = pipe_dir_to_neighbour_dir(dir)
+			
+			
+			if pump.neighbours[neighbour_dir] != null and pump.neighbours[neighbour_dir] is Pipe:
+				var opposite: PIPE_HOLE.SIDE = get_opposite_pipe_dir(dir)
+				var pipe: Pipe = pump.neighbours[neighbour_dir]
+				
+				if pipe.holes[opposite] == true:
+					need_visit.append(pipe)
+					set_pipe_flow(pipe,opposite,PIPE_HOLE.FLOW.IN)
 		else:
 			set_pipe_particle(pump, dir, false)
+	
+	while need_visit.size() > 0:
+		var pipe = need_visit.pop_front()
+		visited.append(pipe)
+		
+		for h in pipe.holes:
+			if pipe.holes[h] == true and pipe.flows[h] != PIPE_HOLE.FLOW.IN:
+				set_pipe_flow(pipe,h,PIPE_HOLE.FLOW.OUT)
+				var neighbour
+				
+				var count: int = pipe.neighbours.keys()[h]
+				neighbour = pipe.neighbours[count]
+				
+				if neighbour != null and neighbour is Pipe:
+					
+					var opposite: PIPE_HOLE.SIDE = get_opposite_pipe_dir(h)
+					var new_pipe: Pipe = neighbour
+					
+					if new_pipe.holes[opposite] == true:
+						need_visit.append(new_pipe)
+						set_pipe_flow(new_pipe,opposite,PIPE_HOLE.FLOW.IN)
