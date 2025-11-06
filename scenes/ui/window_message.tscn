@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://ruixnih5mawl"]
+
+[ext_resource type="Script" uid="uid://b3wuyn3v8ib4d" path="res://scenes/ui/window_message.gd" id="1_hclsg"]
+
+[node name="LevelPassed" type="Panel" node_paths=PackedStringArray("title_label", "content_label", "buttons_list")]
+custom_minimum_size = Vector2(450, 200)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hclsg")
+title_label = NodePath("VBoxContainer/titleLabel")
+content_label = NodePath("VBoxContainer/contentLabel")
+buttons_list = NodePath("VBoxContainer/buttonsList")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="titleLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "title"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="contentLabel" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "title"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="buttonsList" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1

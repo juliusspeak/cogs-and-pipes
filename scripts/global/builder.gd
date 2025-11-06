@@ -49,6 +49,7 @@ func build() -> void:
 	current_lvl_map.rotation[cell.y][cell.x] = build_rotation
 	levelMapController.update_map()
 	
+	
 
 func update_plan() -> void:
 	for n in plan.get_children():

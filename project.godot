@@ -26,6 +26,10 @@ Util="*res://scripts/global/util.gd"
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 
+[gui]
+
+theme/custom="uid://duxe4a657o458"
+
 [input]
 
 left={

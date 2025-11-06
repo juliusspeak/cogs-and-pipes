@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dr3ueecsr2ef2"]
+
+[ext_resource type="Texture2D" uid="uid://bx3ld3l6pspct" path="res://assets/images/ui/connected.png" id="1_lptqc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ega27"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.1005, 0.67, 0, 0.509804)
+albedo_texture = ExtResource("1_lptqc")
+billboard_mode = 1
+billboard_keep_scale = true
+
+[sub_resource type="QuadMesh" id="QuadMesh_lptqc"]
+
+[node name="Connected" type="MeshInstance3D"]
+material_override = SubResource("StandardMaterial3D_ega27")
+mesh = SubResource("QuadMesh_lptqc")

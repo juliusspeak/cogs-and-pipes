@@ -2,12 +2,24 @@ extends Node3D
 class_name LevelMapController
 
 var current_lvl_map: LevelMap
+var levels: Array
+signal level_passed
 
 func _ready() -> void:
 	GlobalData.levelMapController = self
-	load_lvl(ResourceLoader.load("res://assets/maps/0.tres"))
-	current_lvl_map.add_blocked_cells()
+	Util.set_file_paths_to_arr("res://assets/maps/","tres",levels)
 	
+	GlobalData.state_changed.connect(change_state)
+
+func change_state(state: GlobalData.STATE):
+	match state:
+		GlobalData.STATE.MENU:
+			pass
+		GlobalData.STATE.LEVELSELECT:
+			pass
+		GlobalData.STATE.GAME:
+			load_lvl(current_lvl_map)
+
 func clear_lvl() -> void:
 	for n in get_children():
 		n.free()
@@ -20,6 +32,8 @@ func load_lvl(lvl_map: LevelMap) -> void:
 	update_neighbours()
 	update_transmissions()
 	update_flows()
+	
+	check_win_conditions()
 
 func update_neighbours() -> void:
 	for b in get_children():
@@ -253,3 +267,32 @@ func update_flows() -> void:
 					if new_pipe.holes[opposite] == true:
 						need_visit.append(new_pipe)
 						set_pipe_flow(new_pipe,opposite,PIPE_HOLE.FLOW.IN)
+
+func instantiate_connection_mark(obj: Node3D, connected: bool) -> void:
+	var mark: MeshInstance3D
+	if connected == true:
+		mark = ResourceLoader.load("res://scenes/particles/connected.tscn").instantiate()
+	else:
+		mark = ResourceLoader.load("res://scenes/particles/disconnected.tscn").instantiate()
+	obj.add_child(mark)
+	mark.position.y += 2
+	
+
+func check_win_conditions() -> void:
+	var wins: Array
+	
+	for coord in current_lvl_map.win_cells:
+		var pipe_win: bool = false
+		var pipe: Pipe = get_building_by_pos(Vector2i(coord.y,coord.x))
+		for flow in pipe.flows:
+			if pipe.flows[flow] != 0:
+				pipe_win = true
+		instantiate_connection_mark(pipe, pipe_win)
+		wins.append(pipe_win)
+	
+	for result in wins:
+		if result == false:
+			return
+	
+	current_lvl_map.passed = true
+	level_passed.emit()

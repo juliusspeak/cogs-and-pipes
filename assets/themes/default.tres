@@ -1,0 +1,5 @@
+[gd_resource type="Theme" format=3 uid="uid://duxe4a657o458"]
+
+[resource]
+Button/font_sizes/font_size = 30
+Label/font_sizes/font_size = 30

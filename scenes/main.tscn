@@ -111,6 +111,15 @@ shape = SubResource("WorldBoundaryShape3D_jyhfs")
 [node name="LevelMapController" parent="." instance=ExtResource("3_jyhfs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.295, 0, 14.7)
 
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_jyhfs")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
 [node name="ui" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
@@ -120,13 +129,3 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("4_tbgi4")
-
-[node name="ColorRect" type="ColorRect" parent="ui"]
-material = SubResource("ShaderMaterial_jyhfs")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
