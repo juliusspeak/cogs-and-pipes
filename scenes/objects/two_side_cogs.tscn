@@ -312,16 +312,18 @@ mesh = SubResource("ArrayMesh_p3nwj")
 skeleton = NodePath("")
 
 [node name="cog_r" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.402487, 0, 0, 0, 0.4025, 0, 0, 0, 0.402487, -0.4, 0.6, 0)
+transform = Transform3D(0.396372, 0, -0.0698911, 0, 0.4025, 0, 0.0698911, 0, 0.396372, -0.4, 0.6, 0)
 mesh = SubResource("ArrayMesh_hdtjd")
 skeleton = NodePath("")
 script = ExtResource("2_bbf66")
+revers = true
 
 [node name="cog_l" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.4025, 0, 0, 0, 0.4025, 0, 0, 0, 0.4025, 0.4, 0.6, 0)
 mesh = SubResource("ArrayMesh_dnolj")
 skeleton = NodePath("")
 script = ExtResource("2_bbf66")
+revers = true
 
 [node name="supports_r" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.16, 0, 0, 0, 0.5, 0, 0.84, 0)

@@ -1,4 +1,3 @@
-@tool
 extends Node3D
 class_name Transmission
 
@@ -6,6 +5,7 @@ signal rotate_direction_changed
 @export var type: TRANSMISSION_TYPE.TYPE
 @export var rotate_direction: ROTATE_DIRECTION.TYPE = ROTATE_DIRECTION.TYPE.NONE
 @export var rotate_speed: float = 2
+@export var revers: bool = false
 
 func _process(delta: float) -> void:
 	match type:

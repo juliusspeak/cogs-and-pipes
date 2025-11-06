@@ -293,6 +293,7 @@ mesh = SubResource("ArrayMesh_hs6bv")
 skeleton = NodePath("")
 script = ExtResource("1_0tohi")
 type = 1
+revers = true
 
 [node name="shaft_r" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.61539e-07, -0.4025, -6.07758e-08, -0.4025, -1.61539e-07, 0, -2.43917e-14, 6.07758e-08, -0.4025, -0.4, 0.6, 0)
@@ -300,6 +301,7 @@ mesh = SubResource("ArrayMesh_sfs48")
 skeleton = NodePath("")
 script = ExtResource("1_0tohi")
 type = 1
+revers = true
 
 [node name="supports_b" type="MeshInstance3D" parent="."]
 transform = Transform3D(-2.18557e-08, -0.16, 0, 0.5, -6.99382e-09, 0, 0, 0, 0.5, 0.0356758, 0.588003, 0.401682)

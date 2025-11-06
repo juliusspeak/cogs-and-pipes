@@ -295,4 +295,5 @@ func check_win_conditions() -> void:
 			return
 	
 	current_lvl_map.passed = true
+	
 	level_passed.emit()

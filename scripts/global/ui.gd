@@ -53,6 +53,10 @@ func show_levels() -> void:
 			GlobalData.levelMapController.current_lvl_map = lvl;
 			GlobalData.current_state = GlobalData.STATE.GAME)
 
+func show_block_list() -> void:
+	var block_list = instantiate_ui("block_list")
+	
+
 func change_state(state: GlobalData.STATE):
 	clear_all()
 	match state:
@@ -61,4 +65,4 @@ func change_state(state: GlobalData.STATE):
 		GlobalData.STATE.LEVELSELECT:
 			show_levels()
 		GlobalData.STATE.GAME:
-			pass
+			show_block_list()

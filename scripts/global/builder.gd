@@ -1,5 +1,8 @@
 extends Node3D
 
+signal build_block
+signal demolish_block
+
 var world_cell: Vector3
 var cell: Vector2i
 var current_building: int:
@@ -45,11 +48,13 @@ func build() -> void:
 	if current_lvl_map.blocked_cells.has(Vector2i(cell.y,cell.x)):
 		return
 	
+	demolish_block.emit(current_lvl_map.map[cell.y][cell.x])
+	
 	current_lvl_map.map[cell.y][cell.x] = current_building
 	current_lvl_map.rotation[cell.y][cell.x] = build_rotation
 	levelMapController.update_map()
 	
-	
+	build_block.emit(current_building)
 
 func update_plan() -> void:
 	for n in plan.get_children():

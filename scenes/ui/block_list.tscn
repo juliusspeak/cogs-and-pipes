@@ -1,0 +1,359 @@
+[gd_scene load_steps=21 format=3 uid="uid://byiugx11x3coo"]
+
+[ext_resource type="Script" uid="uid://b1fmr3amcod71" path="res://scenes/ui/block_list.gd" id="1_0bbqj"]
+[ext_resource type="PackedScene" uid="uid://cjjc13g44lmh1" path="res://scenes/ui/builder/build_button.tscn" id="1_nrtko"]
+[ext_resource type="Texture2D" uid="uid://b6komdqn38w5v" path="res://assets/images/ui/buildings/TWO_SIDE_COGS.png" id="2_0bbqj"]
+[ext_resource type="Texture2D" uid="uid://dl00pjb7mo5sg" path="res://assets/images/ui/buildings/TWO_SIDE_SHAFTS.png" id="3_qslvq"]
+[ext_resource type="Texture2D" uid="uid://ohsvju2fj3nr" path="res://assets/images/ui/buildings/TWO_SIDE_COG_SHAFT.png" id="4_bjt36"]
+[ext_resource type="Texture2D" uid="uid://b76gstnqb8gb2" path="res://assets/images/ui/buildings/CORNER_COGS.png" id="5_qvvd0"]
+[ext_resource type="Texture2D" uid="uid://6g4qqhqtsfcv" path="res://assets/images/ui/buildings/CORNER_SHAFTS.png" id="6_8j78d"]
+[ext_resource type="Texture2D" uid="uid://dip0lqto81gs8" path="res://assets/images/ui/buildings/CORNER_SHAFT_COG.png" id="7_kpplh"]
+[ext_resource type="Texture2D" uid="uid://bk058eltxhavj" path="res://assets/images/ui/buildings/CORNER_COG_SHAFT.png" id="8_7ocmr"]
+[ext_resource type="Texture2D" uid="uid://h61k68ewy2jt" path="res://assets/images/ui/buildings/BIG_COG.png" id="9_o8nab"]
+[ext_resource type="Texture2D" uid="uid://58g70i6lh076" path="res://assets/images/ui/buildings/ALL_SIDE_COGS.png" id="10_dftah"]
+[ext_resource type="Texture2D" uid="uid://bmachdvieorki" path="res://assets/images/ui/buildings/ALL_SIDE_SHAFTS.png" id="11_ephox"]
+[ext_resource type="Texture2D" uid="uid://ckf7qn7hu7ng1" path="res://assets/images/ui/buildings/SIDE_SHAFT_SIDE_COGS.png" id="12_x2nwt"]
+[ext_resource type="Texture2D" uid="uid://ccss64lc2volx" path="res://assets/images/ui/buildings/SIDE_COG_SIDE_SHAFTS.png" id="13_wne71"]
+[ext_resource type="Texture2D" uid="uid://b6l1ibblyakel" path="res://assets/images/ui/buildings/WATERMILL.png" id="14_n2wx0"]
+[ext_resource type="Texture2D" uid="uid://dnh200qhmxwyh" path="res://assets/images/ui/buildings/TWO_SIDE_PIPE_WITH_COGS.png" id="15_8mkjf"]
+[ext_resource type="Texture2D" uid="uid://cola512ug0ms3" path="res://assets/images/ui/buildings/THREE_SIDE_PIPE.png" id="16_i7k1h"]
+[ext_resource type="Texture2D" uid="uid://ct8i1usimqc01" path="res://assets/images/ui/buildings/TWO_SIDE_PIPE.png" id="17_2m62l"]
+[ext_resource type="Texture2D" uid="uid://paxdf74f00ct" path="res://assets/images/ui/buildings/CORNER_PIPE.png" id="18_klp2b"]
+[ext_resource type="Texture2D" uid="uid://b0wo5vk8635lt" path="res://assets/images/ui/buildings/PUMP.png" id="19_if85f"]
+
+[node name="BlockList" type="HBoxContainer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -414.0
+offset_top = -100.0
+offset_right = 414.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_0bbqj")
+
+[node name="BuildButton10" parent="." instance=ExtResource("1_nrtko")]
+layout_mode = 2
+icon = ExtResource("2_0bbqj")
+build_num = 10
+
+[node name="Label" type="Label" parent="BuildButton10"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -42.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+
+[node name="BuildButton7" parent="." instance=ExtResource("1_nrtko")]
+layout_mode = 2
+icon = ExtResource("3_qslvq")
+build_num = 7
+
+[node name="Label" type="Label" parent="BuildButton7"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -42.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+
+[node name="BuildButton12" parent="." instance=ExtResource("1_nrtko")]
+layout_mode = 2
+icon = ExtResource("4_bjt36")
+build_num = 12
+
+[node name="Label" type="Label" parent="BuildButton12"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -42.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+
+[node name="BuildButton13" parent="." instance=ExtResource("1_nrtko")]
+layout_mode = 2
+icon = ExtResource("5_qvvd0")
+build_num = 13
+
+[node name="Label" type="Label" parent="BuildButton13"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -42.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+
+[node name="BuildButton14" parent="." instance=ExtResource("1_nrtko")]
+layout_mode = 2
+icon = ExtResource("6_8j78d")
+build_num = 14
+
+[node name="Label" type="Label" parent="BuildButton14"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -42.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+
+[node name="BuildButton15" parent="." instance=ExtResource("1_nrtko")]
+layout_mode = 2
+icon = ExtResource("7_kpplh")
+build_num = 15
+
+[node name="Label" type="Label" parent="BuildButton15"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -42.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+
+[node name="BuildButton16" parent="." instance=ExtResource("1_nrtko")]
+layout_mode = 2
+icon = ExtResource("8_7ocmr")
+build_num = 16
+
+[node name="Label" type="Label" parent="BuildButton16"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -42.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+
+[node name="BuildButton5" parent="." instance=ExtResource("1_nrtko")]
+layout_mode = 2
+icon = ExtResource("9_o8nab")
+build_num = 5
+
+[node name="Label" type="Label" parent="BuildButton5"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -42.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+
+[node name="BuildButton3" parent="." instance=ExtResource("1_nrtko")]
+layout_mode = 2
+icon = ExtResource("10_dftah")
+build_num = 3
+
+[node name="Label" type="Label" parent="BuildButton3"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -42.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+
+[node name="BuildButton4" parent="." instance=ExtResource("1_nrtko")]
+layout_mode = 2
+icon = ExtResource("11_ephox")
+build_num = 4
+
+[node name="Label" type="Label" parent="BuildButton4"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -42.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+
+[node name="BuildButton6" parent="." instance=ExtResource("1_nrtko")]
+layout_mode = 2
+icon = ExtResource("12_x2nwt")
+build_num = 6
+
+[node name="Label" type="Label" parent="BuildButton6"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -42.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+
+[node name="BuildButton11" parent="." instance=ExtResource("1_nrtko")]
+layout_mode = 2
+icon = ExtResource("13_wne71")
+build_num = 11
+
+[node name="Label" type="Label" parent="BuildButton11"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -42.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+
+[node name="BuildButton2" parent="." instance=ExtResource("1_nrtko")]
+layout_mode = 2
+icon = ExtResource("14_n2wx0")
+build_num = 2
+
+[node name="Label" type="Label" parent="BuildButton2"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -42.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+
+[node name="BuildButton17" parent="." instance=ExtResource("1_nrtko")]
+layout_mode = 2
+icon = ExtResource("15_8mkjf")
+build_num = 18
+
+[node name="Label" type="Label" parent="BuildButton17"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -42.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+
+[node name="BuildButton18" parent="." instance=ExtResource("1_nrtko")]
+layout_mode = 2
+icon = ExtResource("16_i7k1h")
+build_num = 19
+
+[node name="Label" type="Label" parent="BuildButton18"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -42.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+
+[node name="BuildButton" parent="." instance=ExtResource("1_nrtko")]
+layout_mode = 2
+icon = ExtResource("17_2m62l")
+build_num = 1
+
+[node name="Label" type="Label" parent="BuildButton"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -42.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+
+[node name="BuildButton9" parent="." instance=ExtResource("1_nrtko")]
+layout_mode = 2
+icon = ExtResource("18_klp2b")
+build_num = 9
+
+[node name="Label" type="Label" parent="BuildButton9"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -42.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+
+[node name="BuildButton8" parent="." instance=ExtResource("1_nrtko")]
+layout_mode = 2
+icon = ExtResource("19_if85f")
+build_num = 8
+
+[node name="Label" type="Label" parent="BuildButton8"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -42.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"

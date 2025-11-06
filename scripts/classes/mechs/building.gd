@@ -68,27 +68,39 @@ func change_rotate_direction(trans: Transmission) -> void:
 		return
 	
 	var opposite
-	if trans.rotate_direction == ROTATE_DIRECTION.TYPE.CW:
-		opposite = ROTATE_DIRECTION.TYPE.CCW
+	var direct
+	if trans.revers == false:
+		if trans.rotate_direction == ROTATE_DIRECTION.TYPE.CW:
+			opposite = ROTATE_DIRECTION.TYPE.CCW
+			direct = ROTATE_DIRECTION.TYPE.CW
+		else:
+			opposite = ROTATE_DIRECTION.TYPE.CW
+			direct = ROTATE_DIRECTION.TYPE.CCW
 	else:
-		opposite = ROTATE_DIRECTION.TYPE.CW
+		if trans.rotate_direction == ROTATE_DIRECTION.TYPE.CW:
+			opposite = ROTATE_DIRECTION.TYPE.CW
+			direct = ROTATE_DIRECTION.TYPE.CCW
+		else:
+			opposite = ROTATE_DIRECTION.TYPE.CCW
+			direct = ROTATE_DIRECTION.TYPE.CW
+	
 	
 	match trans:
 		l_transmission: 
 			set_trans_type(f_transmission, opposite)
-			set_trans_type(r_transmission, trans.rotate_direction)
+			set_trans_type(r_transmission, direct)
 			set_trans_type(b_transmission, opposite)
 		r_transmission:
 			set_trans_type(f_transmission, opposite)
-			set_trans_type(l_transmission, trans.rotate_direction)
+			set_trans_type(l_transmission, direct)
 			set_trans_type(b_transmission, opposite)
 		f_transmission:
 			set_trans_type(l_transmission, opposite)
-			set_trans_type(b_transmission, trans.rotate_direction)
+			set_trans_type(b_transmission, direct)
 			set_trans_type(r_transmission, opposite)
 		b_transmission:
 			set_trans_type(l_transmission, opposite)
-			set_trans_type(f_transmission, trans.rotate_direction)
+			set_trans_type(f_transmission, direct)
 			set_trans_type(r_transmission, opposite)
 
 func set_trans_type(transmission: Transmission, trans) -> void:
