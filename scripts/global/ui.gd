@@ -11,7 +11,7 @@ func _ready() -> void:
 	show_menu()
 
 func level_passed() -> void:
-	window_message("key_you_win","3 stars",{"ok": func(parent): parent.queue_free()})
+	window_message("key_you_win","3 stars",{"ok": func(parent): GlobalData.current_state = GlobalData.STATE.LEVELSELECT})
 
 func instantiate_ui(ui_name: String) -> Control:
 	var ui = ResourceLoader.load(scenes[ui_name]).instantiate()
