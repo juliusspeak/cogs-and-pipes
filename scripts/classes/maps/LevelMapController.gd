@@ -1,6 +1,8 @@
 extends Node3D
 class_name LevelMapController
 
+signal level_loaded
+
 var current_lvl_map: LevelMap
 var levels: Array
 signal level_passed
@@ -17,9 +19,9 @@ func change_state(state: GlobalData.STATE):
 			pass
 		GlobalData.STATE.LEVELSELECT:
 			pass
-		GlobalData.STATE.GAME:
+		GlobalData.STATE.LOADGAME:
 			load_lvl(current_lvl_map)
-		GlobalData.STATE.EDITOR:
+		GlobalData.STATE.LOADEDITOR:
 			load_lvl(LevelMap.new())
 
 func clear_lvl() -> void:
@@ -35,10 +37,16 @@ func load_lvl(lvl_map: LevelMap) -> void:
 	update_transmissions()
 	update_flows()
 	
-	if GlobalData.current_state == GlobalData.STATE.EDITOR:
+	if GlobalData.current_state == GlobalData.STATE.EDITOR or GlobalData.current_state == GlobalData.STATE.LOADEDITOR:
 		Visuals.show_locked_cells(current_lvl_map)
-	elif GlobalData.current_state == GlobalData.STATE.GAME:
+	elif GlobalData.current_state == GlobalData.STATE.LOADGAME or GlobalData.current_state == GlobalData.STATE.GAME:
 		check_win_conditions()
+	
+	if GlobalData.current_state == GlobalData.STATE.LOADGAME:
+		GlobalData.current_state = GlobalData.STATE.GAME
+	if GlobalData.current_state == GlobalData.STATE.LOADEDITOR:
+		GlobalData.current_state = GlobalData.STATE.EDITOR
+	level_loaded.emit()
 
 func update_neighbours() -> void:
 	for b in get_children():

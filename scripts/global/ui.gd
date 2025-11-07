@@ -36,14 +36,19 @@ func clear_all() -> void:
 func show_menu() -> void:
 	var menu: Control = instantiate_ui("main_menu")
 	menu.select_level_button.pressed.connect(func(): GlobalData.current_state = GlobalData.STATE.LEVELSELECT)
-	menu.editor_button.pressed.connect(func(): GlobalData.current_state = GlobalData.STATE.EDITOR)
+	menu.editor_button.pressed.connect(func(): GlobalData.current_state = GlobalData.STATE.LOADEDITOR)
 	menu.resume_button.pressed.connect(hide_menu)
 	if GlobalData.current_state == GlobalData.STATE.MENU:
 		menu.resume_button.visible = false
 
 func hide_menu() -> void:
-	GlobalData.paused = false
-	get_node("MainMenu").queue_free()
+	var menu = get_node_or_null("MainMenu")
+	if menu:
+		menu.queue_free()
+	if GlobalData.prev_state == GlobalData.STATE.EDITOR:
+		GlobalData.current_state = GlobalData.STATE.EDITOR 
+	if GlobalData.prev_state == GlobalData.STATE.GAME:
+		GlobalData.current_state = GlobalData.STATE.GAME 
 
 func show_levels() -> void:
 	var select_levels: Control = instantiate_ui("select_levels")
@@ -59,7 +64,7 @@ func show_levels() -> void:
 		lvl_button.text = tr("key_passed") + ": " + str(lvl.passed) + "\n" + tr("key_stars") + ": " + str(lvl.stars)
 		lvl_button.pressed.connect(func():
 			GlobalData.levelMapController.current_lvl_map = lvl;
-			GlobalData.current_state = GlobalData.STATE.GAME)
+			GlobalData.current_state = GlobalData.STATE.LOADGAME)
 
 func show_block_list() -> void:
 	var block_list = instantiate_ui("block_list")
@@ -72,7 +77,15 @@ func change_state(state: GlobalData.STATE):
 			show_menu()
 		GlobalData.STATE.LEVELSELECT:
 			show_levels()
+		GlobalData.STATE.LOADGAME:
+			show_block_list()
+		GlobalData.STATE.LOADEDITOR:
+			show_block_list()
+		GlobalData.STATE.PAUSE:
+			show_menu()
 		GlobalData.STATE.GAME:
 			show_block_list()
+			hide_menu()
 		GlobalData.STATE.EDITOR:
 			show_block_list()
+			hide_menu()

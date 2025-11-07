@@ -12,13 +12,14 @@ func _unhandled_input(event: InputEvent) -> void:
 			GlobalData.current_state = GlobalData.STATE.MENU
 		if GlobalData.current_state == GlobalData.STATE.MENU:
 			return
-		
-		if GlobalData.paused == false:
-			GlobalData.ui.show_menu()
-			GlobalData.paused = true
-		else:
-			GlobalData.ui.hide_menu()
-			GlobalData.paused = false
+			
+		if GlobalData.current_state == GlobalData.STATE.GAME or GlobalData.current_state == GlobalData.STATE.EDITOR:
+			print(GlobalData.current_state)
+			GlobalData.current_state = GlobalData.STATE.PAUSE
+			print(GlobalData.current_state)
+		elif GlobalData.current_state == GlobalData.STATE.PAUSE:
+			if GlobalData.prev_state == GlobalData.STATE.EDITOR or GlobalData.prev_state == GlobalData.STATE.GAME:
+				GlobalData.current_state = GlobalData.prev_state
 	
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
