@@ -2,9 +2,41 @@
 
 [ext_resource type="Script" uid="uid://b22wxt5jgbuyy" path="res://scenes/ui/builder/build_button.gd" id="1_5h4py"]
 
-[node name="BuildButton" type="Button"]
+[node name="BuildButton" type="Button" node_paths=PackedStringArray("sub_button", "num_label", "add_button")]
 custom_minimum_size = Vector2(100, 100)
 expand_icon = true
 script = ExtResource("1_5h4py")
+sub_button = NodePath("HBoxContainer/subButton")
+num_label = NodePath("HBoxContainer/Label")
+add_button = NodePath("HBoxContainer/addButton")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -34.0
+offset_top = -154.0
+offset_right = 34.0
+offset_bottom = -104.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 2
+
+[node name="subButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "-"
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "0"
+
+[node name="addButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "+"
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="pressed" from="HBoxContainer/subButton" to="." method="_on_sub_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/addButton" to="." method="_on_add_button_pressed"]

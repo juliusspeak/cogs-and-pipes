@@ -19,6 +19,8 @@ func change_state(state: GlobalData.STATE):
 			pass
 		GlobalData.STATE.GAME:
 			load_lvl(current_lvl_map)
+		GlobalData.STATE.EDITOR:
+			load_lvl(LevelMap.new())
 
 func clear_lvl() -> void:
 	for n in get_children():
@@ -33,7 +35,10 @@ func load_lvl(lvl_map: LevelMap) -> void:
 	update_transmissions()
 	update_flows()
 	
-	check_win_conditions()
+	if GlobalData.current_state == GlobalData.STATE.EDITOR:
+		Visuals.show_locked_cells(current_lvl_map)
+	elif GlobalData.current_state == GlobalData.STATE.GAME:
+		check_win_conditions()
 
 func update_neighbours() -> void:
 	for b in get_children():
@@ -268,14 +273,6 @@ func update_flows() -> void:
 						need_visit.append(new_pipe)
 						set_pipe_flow(new_pipe,opposite,PIPE_HOLE.FLOW.IN)
 
-func instantiate_connection_mark(obj: Node3D, connected: bool) -> void:
-	var mark: MeshInstance3D
-	if connected == true:
-		mark = ResourceLoader.load("res://scenes/particles/connected.tscn").instantiate()
-	else:
-		mark = ResourceLoader.load("res://scenes/particles/disconnected.tscn").instantiate()
-	obj.add_child(mark)
-	mark.position.y += 2
 	
 
 func check_win_conditions() -> void:
@@ -287,7 +284,14 @@ func check_win_conditions() -> void:
 		for flow in pipe.flows:
 			if pipe.flows[flow] != 0:
 				pipe_win = true
-		instantiate_connection_mark(pipe, pipe_win)
+		
+		var mark_name: String
+		if pipe_win == true:
+			mark_name = "connected"
+		elif pipe_win == false:
+			mark_name = "disconnected"
+		Visuals.instantiate_mark(pipe.position + Vector3(0,2,0), mark_name)
+		
 		wins.append(pipe_win)
 	
 	for result in wins:

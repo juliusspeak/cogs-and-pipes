@@ -36,14 +36,22 @@ func clear_all() -> void:
 func show_menu() -> void:
 	var menu: Control = instantiate_ui("main_menu")
 	menu.select_level_button.pressed.connect(func(): GlobalData.current_state = GlobalData.STATE.LEVELSELECT)
+	menu.editor_button.pressed.connect(func(): GlobalData.current_state = GlobalData.STATE.EDITOR)
+	menu.resume_button.pressed.connect(hide_menu)
+	if GlobalData.current_state == GlobalData.STATE.MENU:
+		menu.resume_button.visible = false
+
+func hide_menu() -> void:
+	GlobalData.paused = false
+	get_node("MainMenu").queue_free()
 
 func show_levels() -> void:
 	var select_levels: Control = instantiate_ui("select_levels")
 	select_levels.back_button.pressed.connect(func(): GlobalData.current_state = GlobalData.STATE.MENU)
 	var grid: GridContainer = select_levels.grid_container
 	for lvl_link in GlobalData.levelMapController.levels:
-		var lvl = ResourceLoader.load(lvl_link)
 		
+		var lvl = ResourceLoader.load(lvl_link)
 		var lvl_button = Button.new()
 		lvl_button.custom_minimum_size = Vector2(200,200)
 		grid.add_child(lvl_button)
@@ -65,4 +73,6 @@ func change_state(state: GlobalData.STATE):
 		GlobalData.STATE.LEVELSELECT:
 			show_levels()
 		GlobalData.STATE.GAME:
+			show_block_list()
+		GlobalData.STATE.EDITOR:
 			show_block_list()

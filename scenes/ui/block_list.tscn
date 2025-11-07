@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://byiugx11x3coo"]
+[gd_scene load_steps=22 format=3 uid="uid://byiugx11x3coo"]
 
 [ext_resource type="Script" uid="uid://b1fmr3amcod71" path="res://scenes/ui/block_list.gd" id="1_0bbqj"]
 [ext_resource type="PackedScene" uid="uid://cjjc13g44lmh1" path="res://scenes/ui/builder/build_button.tscn" id="1_nrtko"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://ct8i1usimqc01" path="res://assets/images/ui/buildings/TWO_SIDE_PIPE.png" id="17_2m62l"]
 [ext_resource type="Texture2D" uid="uid://paxdf74f00ct" path="res://assets/images/ui/buildings/CORNER_PIPE.png" id="18_klp2b"]
 [ext_resource type="Texture2D" uid="uid://b0wo5vk8635lt" path="res://assets/images/ui/buildings/PUMP.png" id="19_if85f"]
+[ext_resource type="Texture2D" uid="uid://dfe3mcqhv7yy3" path="res://assets/images/ui/buildings/BLOCK.png" id="21_qslvq"]
 
 [node name="BlockList" type="HBoxContainer"]
 anchors_preset = 7
@@ -27,333 +28,124 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -414.0
+offset_left = -986.0
 offset_top = -100.0
-offset_right = 414.0
+offset_right = 986.0
 grow_horizontal = 2
 grow_vertical = 0
+alignment = 1
 script = ExtResource("1_0bbqj")
 
 [node name="BuildButton10" parent="." instance=ExtResource("1_nrtko")]
+custom_minimum_size = Vector2(95, 95)
 layout_mode = 2
 icon = ExtResource("2_0bbqj")
 build_num = 10
 
-[node name="Label" type="Label" parent="BuildButton10"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1.0
-offset_top = -42.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "0"
-
 [node name="BuildButton7" parent="." instance=ExtResource("1_nrtko")]
+custom_minimum_size = Vector2(95, 95)
 layout_mode = 2
 icon = ExtResource("3_qslvq")
 build_num = 7
 
-[node name="Label" type="Label" parent="BuildButton7"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1.0
-offset_top = -42.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "0"
-
 [node name="BuildButton12" parent="." instance=ExtResource("1_nrtko")]
+custom_minimum_size = Vector2(95, 95)
 layout_mode = 2
 icon = ExtResource("4_bjt36")
 build_num = 12
 
-[node name="Label" type="Label" parent="BuildButton12"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1.0
-offset_top = -42.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "0"
-
 [node name="BuildButton13" parent="." instance=ExtResource("1_nrtko")]
+custom_minimum_size = Vector2(95, 95)
 layout_mode = 2
 icon = ExtResource("5_qvvd0")
 build_num = 13
 
-[node name="Label" type="Label" parent="BuildButton13"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1.0
-offset_top = -42.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "0"
-
 [node name="BuildButton14" parent="." instance=ExtResource("1_nrtko")]
+custom_minimum_size = Vector2(95, 95)
 layout_mode = 2
 icon = ExtResource("6_8j78d")
 build_num = 14
 
-[node name="Label" type="Label" parent="BuildButton14"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1.0
-offset_top = -42.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "0"
-
 [node name="BuildButton15" parent="." instance=ExtResource("1_nrtko")]
+custom_minimum_size = Vector2(95, 95)
 layout_mode = 2
 icon = ExtResource("7_kpplh")
 build_num = 15
 
-[node name="Label" type="Label" parent="BuildButton15"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1.0
-offset_top = -42.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "0"
-
 [node name="BuildButton16" parent="." instance=ExtResource("1_nrtko")]
+custom_minimum_size = Vector2(95, 95)
 layout_mode = 2
 icon = ExtResource("8_7ocmr")
 build_num = 16
 
-[node name="Label" type="Label" parent="BuildButton16"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1.0
-offset_top = -42.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "0"
-
 [node name="BuildButton5" parent="." instance=ExtResource("1_nrtko")]
+custom_minimum_size = Vector2(95, 95)
 layout_mode = 2
 icon = ExtResource("9_o8nab")
 build_num = 5
 
-[node name="Label" type="Label" parent="BuildButton5"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1.0
-offset_top = -42.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "0"
-
 [node name="BuildButton3" parent="." instance=ExtResource("1_nrtko")]
+custom_minimum_size = Vector2(95, 95)
 layout_mode = 2
 icon = ExtResource("10_dftah")
 build_num = 3
 
-[node name="Label" type="Label" parent="BuildButton3"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1.0
-offset_top = -42.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "0"
-
 [node name="BuildButton4" parent="." instance=ExtResource("1_nrtko")]
+custom_minimum_size = Vector2(95, 95)
 layout_mode = 2
 icon = ExtResource("11_ephox")
 build_num = 4
 
-[node name="Label" type="Label" parent="BuildButton4"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1.0
-offset_top = -42.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "0"
-
 [node name="BuildButton6" parent="." instance=ExtResource("1_nrtko")]
+custom_minimum_size = Vector2(95, 95)
 layout_mode = 2
 icon = ExtResource("12_x2nwt")
 build_num = 6
 
-[node name="Label" type="Label" parent="BuildButton6"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1.0
-offset_top = -42.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "0"
-
 [node name="BuildButton11" parent="." instance=ExtResource("1_nrtko")]
+custom_minimum_size = Vector2(95, 95)
 layout_mode = 2
 icon = ExtResource("13_wne71")
 build_num = 11
 
-[node name="Label" type="Label" parent="BuildButton11"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1.0
-offset_top = -42.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "0"
-
 [node name="BuildButton2" parent="." instance=ExtResource("1_nrtko")]
+custom_minimum_size = Vector2(95, 95)
 layout_mode = 2
 icon = ExtResource("14_n2wx0")
 build_num = 2
 
-[node name="Label" type="Label" parent="BuildButton2"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1.0
-offset_top = -42.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "0"
-
 [node name="BuildButton17" parent="." instance=ExtResource("1_nrtko")]
+custom_minimum_size = Vector2(95, 95)
 layout_mode = 2
 icon = ExtResource("15_8mkjf")
 build_num = 18
 
-[node name="Label" type="Label" parent="BuildButton17"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1.0
-offset_top = -42.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "0"
-
 [node name="BuildButton18" parent="." instance=ExtResource("1_nrtko")]
+custom_minimum_size = Vector2(95, 95)
 layout_mode = 2
 icon = ExtResource("16_i7k1h")
 build_num = 19
 
-[node name="Label" type="Label" parent="BuildButton18"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1.0
-offset_top = -42.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "0"
-
 [node name="BuildButton" parent="." instance=ExtResource("1_nrtko")]
+custom_minimum_size = Vector2(95, 95)
 layout_mode = 2
 icon = ExtResource("17_2m62l")
 build_num = 1
 
-[node name="Label" type="Label" parent="BuildButton"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1.0
-offset_top = -42.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "0"
-
 [node name="BuildButton9" parent="." instance=ExtResource("1_nrtko")]
+custom_minimum_size = Vector2(95, 95)
 layout_mode = 2
 icon = ExtResource("18_klp2b")
 build_num = 9
 
-[node name="Label" type="Label" parent="BuildButton9"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1.0
-offset_top = -42.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "0"
-
 [node name="BuildButton8" parent="." instance=ExtResource("1_nrtko")]
+custom_minimum_size = Vector2(95, 95)
 layout_mode = 2
 icon = ExtResource("19_if85f")
 build_num = 8
 
-[node name="Label" type="Label" parent="BuildButton8"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1.0
-offset_top = -42.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "0"
+[node name="BuildButton19" parent="." instance=ExtResource("1_nrtko")]
+custom_minimum_size = Vector2(95, 95)
+layout_mode = 2
+icon = ExtResource("21_qslvq")
+build_num = 17

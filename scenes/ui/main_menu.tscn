@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d1ak3p8tainxx" path="res://scenes/ui/main_menu.gd" id="1_sl1te"]
 
-[node name="Panel" type="Panel" node_paths=PackedStringArray("select_level_button")]
+[node name="MainMenu" type="Panel" node_paths=PackedStringArray("select_level_button", "editor_button", "resume_button")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -10,6 +10,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sl1te")
 select_level_button = NodePath("MainMenu/selectLevelButton")
+editor_button = NodePath("MainMenu/editorButton")
+resume_button = NodePath("MainMenu/resumeButton")
 
 [node name="MainMenu" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -25,6 +27,14 @@ offset_bottom = 15.5
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="resumeButton" type="Button" parent="MainMenu"]
+layout_mode = 2
+text = "key_resume"
+
 [node name="selectLevelButton" type="Button" parent="MainMenu"]
 layout_mode = 2
 text = "key_select_lvl"
+
+[node name="editorButton" type="Button" parent="MainMenu"]
+layout_mode = 2
+text = "key_editor"
