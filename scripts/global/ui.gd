@@ -11,7 +11,14 @@ func _ready() -> void:
 	show_menu()
 
 func level_passed() -> void:
-	window_message("key_you_win","3 stars",{"ok": func(parent): GlobalData.current_state = GlobalData.STATE.LEVELSELECT})
+	var lvl_map_control = GlobalData.levelMapController
+	var lvl_num = lvl_map_control.levels.find(str(lvl_map_control.current_lvl_map.resource_path))
+	var buttons_dict: Dictionary ={
+		"key_ok": func(parent): GlobalData.current_state = GlobalData.STATE.LEVELSELECT,
+	}
+	if lvl_map_control.levels.size()-1 >= lvl_num + 1 and lvl_num != -1:
+		buttons_dict["key_next"] = func(parent): lvl_map_control.load_next()
+	window_message("key_you_win","3 stars",buttons_dict)
 
 func instantiate_ui(ui_name: String) -> Control:
 	var ui = ResourceLoader.load(scenes[ui_name]).instantiate()

@@ -10,7 +10,7 @@ signal level_passed
 func _ready() -> void:
 	GlobalData.levelMapController = self
 	Util.set_file_paths_to_arr("res://assets/maps/","tres",levels)
-	
+	levels.reverse()
 	GlobalData.state_changed.connect(change_state)
 
 func change_state(state: GlobalData.STATE):
@@ -20,6 +20,7 @@ func change_state(state: GlobalData.STATE):
 		GlobalData.STATE.LEVELSELECT:
 			pass
 		GlobalData.STATE.LOADGAME:
+			print(current_lvl_map.resource_path)
 			load_lvl(current_lvl_map)
 		GlobalData.STATE.LOADEDITOR:
 			load_lvl(LevelMap.new())
@@ -27,6 +28,12 @@ func change_state(state: GlobalData.STATE):
 func clear_lvl() -> void:
 	for n in get_children():
 		n.free()
+
+func load_next() -> void:
+	var lvl_num = levels.find(str(current_lvl_map.resource_path))
+	if levels.size()-1 >= lvl_num + 1 and lvl_num != -1:
+		current_lvl_map = ResourceLoader.load(levels[lvl_num+1])
+		GlobalData.current_state = GlobalData.STATE.LOADGAME
 
 func load_lvl(lvl_map: LevelMap) -> void:
 	clear_lvl()

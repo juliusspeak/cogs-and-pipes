@@ -14,9 +14,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			return
 			
 		if GlobalData.current_state == GlobalData.STATE.GAME or GlobalData.current_state == GlobalData.STATE.EDITOR:
-			print(GlobalData.current_state)
 			GlobalData.current_state = GlobalData.STATE.PAUSE
-			print(GlobalData.current_state)
 		elif GlobalData.current_state == GlobalData.STATE.PAUSE:
 			if GlobalData.prev_state == GlobalData.STATE.EDITOR or GlobalData.prev_state == GlobalData.STATE.GAME:
 				GlobalData.current_state = GlobalData.prev_state
