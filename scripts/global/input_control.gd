@@ -5,7 +5,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		Builder.current_building = 0
 	
 	if event.is_action_pressed("lmb"):
-		Builder.build()
+		match Builder.current_state:
+			Builder.STATE.BUILDING:
+				Builder.build()
+			Builder.STATE.LOCKING:
+				Builder.lock()
 	
 	if event.is_action_pressed("esc"):
 		if GlobalData.current_state == GlobalData.STATE.LEVELSELECT:

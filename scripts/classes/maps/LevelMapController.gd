@@ -20,7 +20,6 @@ func change_state(state: GlobalData.STATE):
 		GlobalData.STATE.LEVELSELECT:
 			pass
 		GlobalData.STATE.LOADGAME:
-			print(current_lvl_map.resource_path)
 			load_lvl(current_lvl_map)
 		GlobalData.STATE.LOADEDITOR:
 			load_lvl(LevelMap.new())

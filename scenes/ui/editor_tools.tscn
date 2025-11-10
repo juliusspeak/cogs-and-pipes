@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://8lhi7qgcjuhk"]
+
+[ext_resource type="Script" uid="uid://cxj55hf0rupww" path="res://scenes/ui/editor_tools.gd" id="1_8bawq"]
+[ext_resource type="Texture2D" uid="uid://qxtf1cbuiolv" path="res://assets/images/ui/lock.png" id="2_15nb1"]
+
+[node name="EditorTools" type="VBoxContainer" node_paths=PackedStringArray("lock_button")]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 0
+grow_vertical = 2
+script = ExtResource("1_8bawq")
+lock_button = NodePath("lockButton")
+
+[node name="lockButton" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0.313726)
+icon = ExtResource("2_15nb1")
+expand_icon = true
+
+[connection signal="pressed" from="lockButton" to="." method="_on_lock_button_pressed"]

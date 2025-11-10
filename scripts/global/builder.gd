@@ -11,6 +11,9 @@ var current_building: int:
 		update_plan()
 var build_rotation:int = 0
 
+var current_state: = STATE.BUILDING
+enum STATE {BUILDING,LOCKING,TARGETS}
+
 @export var plan: Node3D
 var plan_model: Node3D
 
@@ -45,7 +48,7 @@ func build() -> void:
 	var levelMapController = GlobalData.levelMapController
 	var current_lvl_map = levelMapController.current_lvl_map
 	
-	if current_lvl_map.blocked_cells.has(Vector2i(cell.y,cell.x)):
+	if current_lvl_map.blocked_cells.has(Vector2i(cell.y,cell.x)) and GlobalData.current_state != GlobalData.STATE.EDITOR:
 		return
 	
 	demolish_block.emit(current_lvl_map.map[cell.y][cell.x])
@@ -55,6 +58,16 @@ func build() -> void:
 	levelMapController.update_map()
 	
 	build_block.emit(current_building)
+
+func lock() -> void:
+	var levelMapController = GlobalData.levelMapController
+	var lvl_map = levelMapController.current_lvl_map
+	
+	if lvl_map.blocked_cells.has(Vector2i(cell.y,cell.x)):
+		lvl_map.blocked_cells.erase(Vector2i(cell.y,cell.x))
+	else:
+		lvl_map.blocked_cells.append(Vector2i(cell.y,cell.x))
+	levelMapController.update_map()
 
 func update_plan() -> void:
 	for n in plan.get_children():

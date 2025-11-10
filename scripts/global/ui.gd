@@ -75,7 +75,10 @@ func show_levels() -> void:
 
 func show_block_list() -> void:
 	var block_list = instantiate_ui("block_list")
-	
+
+func show_editor_tools() -> void:
+	var editor_tools = instantiate_ui("editor_tools")
+
 
 func change_state(state: GlobalData.STATE):
 	clear_all()
@@ -88,6 +91,7 @@ func change_state(state: GlobalData.STATE):
 			show_block_list()
 		GlobalData.STATE.LOADEDITOR:
 			show_block_list()
+			show_editor_tools()
 		GlobalData.STATE.PAUSE:
 			show_menu()
 		GlobalData.STATE.GAME:
@@ -95,4 +99,5 @@ func change_state(state: GlobalData.STATE):
 			hide_menu()
 		GlobalData.STATE.EDITOR:
 			show_block_list()
+			show_editor_tools()
 			hide_menu()
