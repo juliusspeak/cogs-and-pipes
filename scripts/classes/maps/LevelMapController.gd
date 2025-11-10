@@ -45,6 +45,7 @@ func load_lvl(lvl_map: LevelMap) -> void:
 	
 	if GlobalData.current_state == GlobalData.STATE.EDITOR or GlobalData.current_state == GlobalData.STATE.LOADEDITOR:
 		Visuals.show_locked_cells(current_lvl_map)
+		Visuals.show_goal_cells(current_lvl_map)
 	elif GlobalData.current_state == GlobalData.STATE.LOADGAME or GlobalData.current_state == GlobalData.STATE.GAME:
 		check_win_conditions()
 	
@@ -299,11 +300,12 @@ func check_win_conditions() -> void:
 			if pipe.flows[flow] != 0:
 				pipe_win = true
 		
-		var mark_name: String
+		var mark_name: String = "connected"
 		if pipe_win == true:
 			mark_name = "connected"
 		elif pipe_win == false:
 			mark_name = "disconnected"
+		
 		Visuals.instantiate_mark(pipe.position + Vector3(0,2,0), mark_name)
 		
 		wins.append(pipe_win)

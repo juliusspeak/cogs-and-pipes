@@ -10,6 +10,8 @@ func _unhandled_input(event: InputEvent) -> void:
 				Builder.build()
 			Builder.STATE.LOCKING:
 				Builder.lock()
+			Builder.STATE.GOALS:
+				Builder.goal()
 	
 	if event.is_action_pressed("esc"):
 		if GlobalData.current_state == GlobalData.STATE.LEVELSELECT:
