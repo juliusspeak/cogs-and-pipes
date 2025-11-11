@@ -48,6 +48,20 @@ layout_mode = 2
 size_flags_horizontal = 4
 columns = 9
 
+[node name="OneLvlBtn" type="VBoxContainer" parent="MarginContainer/ScrollContainer/GridContainer"]
+layout_mode = 2
+
+[node name="lvlCode" type="TextEdit" parent="MarginContainer/ScrollContainer/GridContainer/OneLvlBtn"]
+custom_minimum_size = Vector2(100, 75)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+placeholder_text = "ABCDABCDABCDABCD"
+wrap_mode = 1
+
+[node name="Button" type="Button" parent="MarginContainer/ScrollContainer/GridContainer/OneLvlBtn"]
+layout_mode = 2
+text = "key_load"
+
 [node name="backButton" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 7
@@ -62,3 +76,5 @@ offset_bottom = -24.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "key_back"
+
+[connection signal="pressed" from="MarginContainer/ScrollContainer/GridContainer/OneLvlBtn/Button" to="." method="_on_button_pressed"]

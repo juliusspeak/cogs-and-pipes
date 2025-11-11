@@ -1,20 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://ruixnih5mawl"]
+[gd_scene load_steps=3 format=3 uid="uid://ruixnih5mawl"]
 
 [ext_resource type="Script" uid="uid://b3wuyn3v8ib4d" path="res://scenes/ui/window_message.gd" id="1_hclsg"]
+[ext_resource type="PackedScene" uid="uid://bcgb6h05fba05" path="res://scenes/ui/three_star_element.tscn" id="2_mlkdl"]
 
-[node name="LevelPassed" type="Panel" node_paths=PackedStringArray("title_label", "content_label", "buttons_list")]
+[node name="LevelPassed" type="Panel" node_paths=PackedStringArray("title_label", "content_label", "buttons_list", "three_star_element")]
 custom_minimum_size = Vector2(450, 200)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = -137.0
+offset_right = 225.0
+offset_bottom = 137.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hclsg")
 title_label = NodePath("VBoxContainer/titleLabel")
 content_label = NodePath("VBoxContainer/contentLabel")
 buttons_list = NodePath("VBoxContainer/buttonsList")
+three_star_element = NodePath("VBoxContainer/ThreeStarElement")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -23,6 +29,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
 
 [node name="titleLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
@@ -39,6 +46,11 @@ text = "title"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="ThreeStarElement" parent="VBoxContainer" instance=ExtResource("2_mlkdl")]
+layout_mode = 2
+size_flags_horizontal = 4
+
 [node name="buttonsList" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 8
 alignment = 1

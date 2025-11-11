@@ -36,8 +36,13 @@ func _on_pressed() -> void:
 
 func _on_add_button_pressed() -> void:
 	num_label.text = str(int(num_label.text) + 1)
-
+	
+	if GlobalData.current_state == GlobalData.STATE.EDITOR:
+		GlobalData.levelMapController.current_lvl_map.build_limit[build_res_keys[build_num]] = int(num_label.text)
 
 func _on_sub_button_pressed() -> void:
 	if int(num_label.text) > 0:
 		num_label.text = str(int(num_label.text) - 1)
+	
+	if GlobalData.current_state == GlobalData.STATE.EDITOR:
+		GlobalData.levelMapController.current_lvl_map.build_limit[build_res_keys[build_num]] = int(num_label.text)

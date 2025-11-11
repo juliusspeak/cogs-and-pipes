@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4ggq4iir0vri"]
+
+[ext_resource type="PackedScene" uid="uid://bcgb6h05fba05" path="res://scenes/ui/three_star_element.tscn" id="1_30lvv"]
+[ext_resource type="Script" uid="uid://bo6xo6844tus5" path="res://scenes/ui/one_lvl_btn.gd" id="1_jslbr"]
+
+[node name="OneLvlBtn" type="VBoxContainer" node_paths=PackedStringArray("button", "three_star_element")]
+script = ExtResource("1_jslbr")
+button = NodePath("Button")
+three_star_element = NodePath("ThreeStarElement")
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 75)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+
+[node name="ThreeStarElement" parent="." instance=ExtResource("1_30lvv")]
+layout_mode = 2
+stars = 0

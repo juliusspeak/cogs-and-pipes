@@ -51,7 +51,7 @@ class_name LevelMap
 @export var win_cells: Array[Vector2i] = [Vector2i(9,19)]
 @export var build_limit: Dictionary = {
 	"NOONE": 0,
-	"TWO_SIDE_PIPE": 8,
+	"TWO_SIDE_PIPE": 0,
 	"WATERMILL": 0,
 	"ALL_SIDE_COGS": 0,
 	"ALL_SIDE_SHAFTS": 0,
@@ -59,7 +59,7 @@ class_name LevelMap
 	"SIDE_SHAFT_SIDE_COGS": 0,
 	"TWO_SIDE_SHAFTS": 0,
 	"PUMP": 0,
-	"CORNER_PIPE": 2,
+	"CORNER_PIPE": 0,
 	"TWO_SIDE_COGS": 0,
 	"SIDE_COG_SIDE_SHAFTS": 0,
 	"TWO_SIDE_COG_SHAFT": 0,
@@ -71,6 +71,7 @@ class_name LevelMap
 	"TWO_SIDE_PIPE_WITH_COGS": 0,
 	"THREE_SIDE_PIPE": 0,
 	}
+@export var used_builds: int = 0
 
 var passed: bool = false
 var stars: int = 0

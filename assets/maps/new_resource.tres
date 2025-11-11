@@ -30,9 +30,10 @@ build_limit = {
 "TWO_SIDE_SHAFTS": 0,
 "WATERMILL": 0
 }
+used_builds = 0
 stars_conditions = {
-1: 0,
-2: 0,
-3: 0
+1: 24,
+2: 23,
+3: 22
 }
 metadata/_custom_type_script = "uid://d2gph8xcjjyqx"

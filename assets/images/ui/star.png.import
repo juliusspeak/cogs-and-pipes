@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c04t3wpcfhe6q"
-path.bptc="res://.godot/imported/goal.png-eabecc603b3752310309c0f36d83a55a.bptc.ctex"
+uid="uid://b2sbu0yaextkt"
+path.bptc="res://.godot/imported/star.png-46d618f69887102dbb242b2c7e76b751.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/images/ui/goal.png"
-dest_files=["res://.godot/imported/goal.png-eabecc603b3752310309c0f36d83a55a.bptc.ctex"]
+source_file="res://assets/images/ui/star.png"
+dest_files=["res://.godot/imported/star.png-46d618f69887102dbb242b2c7e76b751.bptc.ctex"]
 
 [params]
 
@@ -22,7 +22,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -32,4 +32,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

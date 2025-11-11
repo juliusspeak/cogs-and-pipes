@@ -12,20 +12,21 @@ func _ready() -> void:
 
 func level_passed() -> void:
 	var lvl_map_control = GlobalData.levelMapController
-	var lvl_num = lvl_map_control.levels.find(str(lvl_map_control.current_lvl_map.resource_path))
+	var lvl_num: int = lvl_map_control.levels.find(str(lvl_map_control.current_lvl_map.resource_path))
+	var stars: int = lvl_map_control.current_lvl_map.stars
 	var buttons_dict: Dictionary ={
 		"key_ok": func(parent): GlobalData.current_state = GlobalData.STATE.LEVELSELECT,
 	}
 	if lvl_map_control.levels.size()-1 >= lvl_num + 1 and lvl_num != -1:
 		buttons_dict["key_next"] = func(parent): lvl_map_control.load_next()
-	window_message("key_you_win","3 stars",buttons_dict)
+	window_message("key_you_win","",buttons_dict,stars,false)
 
 func instantiate_ui(ui_name: String) -> Control:
 	var ui = ResourceLoader.load(scenes[ui_name]).instantiate()
 	add_child(ui)
 	return ui
 
-func window_message(title: String, content: String, buttons: Dictionary):
+func window_message(title: String, content: String, buttons: Dictionary, stars: int, hide_stars: bool = true):
 	var window = instantiate_ui("window_message")
 	window.title_label.text = title
 	window.content_label.text = content
@@ -34,6 +35,14 @@ func window_message(title: String, content: String, buttons: Dictionary):
 		button.text = btn_name
 		window.buttons_list.add_child(button)
 		button.pressed.connect(buttons[btn_name].bind(window))
+		
+	if hide_stars == true:
+		window.content_label.visible = true
+		window.three_star_element.visible = false
+	else:
+		window.content_label.visible = false
+		window.three_star_element.visible = true
+		window.three_star_element.stars = stars
 	return window
 
 func clear_all() -> void:
@@ -64,13 +73,18 @@ func show_levels() -> void:
 	for lvl_link in GlobalData.levelMapController.levels:
 		
 		var lvl = ResourceLoader.load(lvl_link)
-		var lvl_button = Button.new()
-		lvl_button.custom_minimum_size = Vector2(200,200)
+		
+		var lvl_button = ResourceLoader.load(scenes["one_lvl_btn"]).instantiate()
 		grid.add_child(lvl_button)
 		
-		lvl_button.text = tr("key_passed") + ": " + str(lvl.passed) + "\n" + tr("key_stars") + ": " + str(lvl.stars)
-		lvl_button.pressed.connect(func():
-			GlobalData.levelMapController.current_lvl_map = lvl;
+		if lvl.passed == true:
+			lvl_button.button.text = tr("key_passed")
+		else:
+			lvl_button.button.text = tr("key_not_passed")
+		lvl_button.three_star_element.stars = lvl.stars
+		lvl_button.button.pressed.connect(func():
+			GlobalData.levelMapController.current_lvl_map = lvl
+			GlobalData.levelMapController.clean_lvl()
 			GlobalData.current_state = GlobalData.STATE.LOADGAME)
 
 func show_block_list() -> void:

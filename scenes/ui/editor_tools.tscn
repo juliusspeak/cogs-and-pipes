@@ -1,34 +1,150 @@
-[gd_scene load_steps=4 format=3 uid="uid://8lhi7qgcjuhk"]
+[gd_scene load_steps=5 format=3 uid="uid://8lhi7qgcjuhk"]
 
 [ext_resource type="Script" uid="uid://cxj55hf0rupww" path="res://scenes/ui/editor_tools.gd" id="1_8bawq"]
 [ext_resource type="Texture2D" uid="uid://qxtf1cbuiolv" path="res://assets/images/ui/lock.png" id="2_15nb1"]
 [ext_resource type="Texture2D" uid="uid://c04t3wpcfhe6q" path="res://assets/images/ui/goal.png" id="3_15nb1"]
+[ext_resource type="PackedScene" uid="uid://bcgb6h05fba05" path="res://scenes/ui/three_star_element.tscn" id="4_fg2pd"]
 
-[node name="EditorTools" type="VBoxContainer" node_paths=PackedStringArray("lock_button", "goal_button")]
+[node name="EditorTools" type="Control" node_paths=PackedStringArray("get_lvl_button", "lvl_line_edit", "lock_button", "goal_button", "sub_button0", "label0", "add_button0", "sub_button1", "label1", "add_button1", "sub_button2", "label2", "add_button2")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_8bawq")
+get_lvl_button = NodePath("HBoxContainer/getLvlButton")
+lvl_line_edit = NodePath("HBoxContainer/lvlLineEdit")
+lock_button = NodePath("editor_buttons/lockButton")
+goal_button = NodePath("editor_buttons/goalButton")
+sub_button0 = NodePath("star_counts/HBoxContainer/subButton")
+label0 = NodePath("star_counts/HBoxContainer/Label")
+add_button0 = NodePath("star_counts/HBoxContainer/addButton")
+sub_button1 = NodePath("star_counts/HBoxContainer2/subButton")
+label1 = NodePath("star_counts/HBoxContainer2/Label")
+add_button1 = NodePath("star_counts/HBoxContainer2/addButton")
+sub_button2 = NodePath("star_counts/HBoxContainer3/subButton")
+label2 = NodePath("star_counts/HBoxContainer3/Label")
+add_button2 = NodePath("star_counts/HBoxContainer3/addButton")
+
+[node name="editor_buttons" type="VBoxContainer" parent="."]
+layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
+offset_left = -116.0
+offset_top = -102.0
+offset_right = -16.0
+offset_bottom = 102.0
 grow_horizontal = 0
 grow_vertical = 2
-script = ExtResource("1_8bawq")
-lock_button = NodePath("lockButton")
-goal_button = NodePath("goalButton")
+mouse_filter = 0
 
-[node name="lockButton" type="Button" parent="."]
+[node name="lockButton" type="Button" parent="editor_buttons"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme_override_colors/icon_normal_color = Color(1, 1, 1, 0.313726)
 icon = ExtResource("2_15nb1")
 expand_icon = true
 
-[node name="goalButton" type="Button" parent="."]
+[node name="goalButton" type="Button" parent="editor_buttons"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 theme_override_colors/icon_normal_color = Color(1, 1, 1, 0.313726)
 icon = ExtResource("3_15nb1")
 expand_icon = true
 
-[connection signal="pressed" from="lockButton" to="." method="_on_lock_button_pressed"]
-[connection signal="pressed" from="goalButton" to="." method="_on_goal_button_pressed"]
+[node name="star_counts" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 16.0
+offset_top = -74.0
+offset_right = 285.0
+offset_bottom = 84.0
+grow_vertical = 2
+mouse_filter = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="star_counts"]
+layout_mode = 2
+
+[node name="ThreeStarElement" parent="star_counts/HBoxContainer" instance=ExtResource("4_fg2pd")]
+layout_mode = 2
+stars = 1
+
+[node name="subButton" type="Button" parent="star_counts/HBoxContainer"]
+layout_mode = 2
+text = " -  "
+
+[node name="Label" type="Label" parent="star_counts/HBoxContainer"]
+layout_mode = 2
+text = "0"
+
+[node name="addButton" type="Button" parent="star_counts/HBoxContainer"]
+layout_mode = 2
+text = " + "
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="star_counts"]
+layout_mode = 2
+
+[node name="ThreeStarElement" parent="star_counts/HBoxContainer2" instance=ExtResource("4_fg2pd")]
+layout_mode = 2
+
+[node name="subButton" type="Button" parent="star_counts/HBoxContainer2"]
+layout_mode = 2
+text = " -  "
+
+[node name="Label" type="Label" parent="star_counts/HBoxContainer2"]
+layout_mode = 2
+text = "0"
+
+[node name="addButton" type="Button" parent="star_counts/HBoxContainer2"]
+layout_mode = 2
+text = " + "
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="star_counts"]
+layout_mode = 2
+
+[node name="ThreeStarElement" parent="star_counts/HBoxContainer3" instance=ExtResource("4_fg2pd")]
+layout_mode = 2
+stars = 3
+
+[node name="subButton" type="Button" parent="star_counts/HBoxContainer3"]
+layout_mode = 2
+text = " -  "
+
+[node name="Label" type="Label" parent="star_counts/HBoxContainer3"]
+layout_mode = 2
+text = "0"
+
+[node name="addButton" type="Button" parent="star_counts/HBoxContainer3"]
+layout_mode = 2
+text = " + "
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -134.5
+offset_top = 16.0
+offset_right = 134.5
+offset_bottom = 66.0
+grow_horizontal = 2
+mouse_filter = 0
+
+[node name="getLvlButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "key_get_level"
+
+[node name="lvlLineEdit" type="LineEdit" parent="HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[connection signal="pressed" from="editor_buttons/lockButton" to="." method="_on_lock_button_pressed"]
+[connection signal="pressed" from="editor_buttons/goalButton" to="." method="_on_goal_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/getLvlButton" to="." method="_on_get_lvl_button_pressed"]

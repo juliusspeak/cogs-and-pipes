@@ -28,6 +28,17 @@ func clear_lvl() -> void:
 	for n in get_children():
 		n.free()
 
+func clean_lvl() -> void:
+	var x: int = 0
+	var y: int = 0
+	for row in current_lvl_map.map:
+		for column in row:
+			if !current_lvl_map.blocked_cells.has(Vector2i(x,y)):
+				current_lvl_map.map[x][y] = 0
+			y += 1
+		x += 1
+		y = 0
+	current_lvl_map.used_builds = 0
 func load_next() -> void:
 	var lvl_num = levels.find(str(current_lvl_map.resource_path))
 	if levels.size()-1 >= lvl_num + 1 and lvl_num != -1:
@@ -91,7 +102,7 @@ func build_map() -> void:
 func get_building_by_pos(pos: Vector2i) -> Building:
 	var bld: Building = null
 	for b in get_children():
-		if b.pos_in_map == pos:
+		if b is Building and b.pos_in_map == pos:
 			bld = b
 	return bld
 	
@@ -315,5 +326,13 @@ func check_win_conditions() -> void:
 			return
 	
 	current_lvl_map.passed = true
-	
+	def_stars()
 	level_passed.emit()
+
+func def_stars() -> void:
+	if current_lvl_map.used_builds <= current_lvl_map.stars_conditions[1]:
+		current_lvl_map.stars = 1
+	if current_lvl_map.used_builds <= current_lvl_map.stars_conditions[2]:
+		current_lvl_map.stars = 2
+	if current_lvl_map.used_builds <= current_lvl_map.stars_conditions[3]:
+		current_lvl_map.stars = 3

@@ -18,8 +18,6 @@ func set_up() -> void:
 			button.sub_button.visible = false
 			button.add_button.visible = false
 			update_visibility()
-		else:
-			count.text = "0"
 
 func add_block(block_name: int) -> void:
 	for button in get_children():

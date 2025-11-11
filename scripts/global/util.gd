@@ -27,3 +27,12 @@ static func set_file_paths_to_arr(path: String, extension: String, arr: Array) -
 			set_file_paths_to_arr(full_path.trim_suffix("/"), extension, arr)
 		elif file.get_extension() == extension:
 			arr.append(full_path)
+
+static func res_to_string(res: Resource) -> String:
+	var bytes: PackedByteArray = var_to_bytes_with_objects(res)
+	return Marshalls.raw_to_base64(bytes)
+
+func string_to_res(data: String) -> Resource:
+	var bytes: PackedByteArray = Marshalls.base64_to_raw(data)
+	var res: LevelMap = bytes_to_var_with_objects(bytes)
+	return res

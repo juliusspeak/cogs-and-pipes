@@ -51,6 +51,11 @@ func build() -> void:
 	if current_lvl_map.blocked_cells.has(Vector2i(cell.y,cell.x)) and GlobalData.current_state != GlobalData.STATE.EDITOR:
 		return
 	
+	if current_building == 0 and current_lvl_map.map[cell.y][cell.x] != 0:
+		current_lvl_map.used_builds -= 1
+	elif current_building != 0 and current_lvl_map.map[cell.y][cell.x] == 0:
+		current_lvl_map.used_builds += 1
+	
 	demolish_block.emit(current_lvl_map.map[cell.y][cell.x])
 	
 	current_lvl_map.map[cell.y][cell.x] = current_building

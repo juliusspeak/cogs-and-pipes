@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcgb6h05fba05"]
+
+[ext_resource type="Script" uid="uid://cmbc86a23pwey" path="res://scenes/ui/three_star_element.gd" id="1_0sta4"]
+[ext_resource type="Texture2D" uid="uid://b2sbu0yaextkt" path="res://assets/images/ui/star.png" id="2_nj8ka"]
+
+[node name="ThreeStarElement" type="HBoxContainer" node_paths=PackedStringArray("texture_rect", "texture_rect_2", "texture_rect_3")]
+script = ExtResource("1_0sta4")
+texture_rect = NodePath("TextureRect")
+texture_rect_2 = NodePath("TextureRect2")
+texture_rect_3 = NodePath("TextureRect3")
+stars = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("2_nj8ka")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("2_nj8ka")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("2_nj8ka")
+expand_mode = 5
+stretch_mode = 5
