@@ -206,25 +206,26 @@ func def_pump_dir(pump: Pipe):
 	for h in pump.holes:
 		if pump.holes[h] == true:
 			return h
+
 func check_pumping(pump: Pipe, dir: PIPE_HOLE.SIDE):
 	match dir:
 		0:
-			if pump.b_transmission.rotate_direction == ROTATE_DIRECTION.TYPE.CCW:
+			if pump.b_transmission and pump.b_transmission.rotate_direction == ROTATE_DIRECTION.TYPE.CCW:
 				return true
 			else:
 				return false
 		1:
-			if pump.l_transmission.rotate_direction == ROTATE_DIRECTION.TYPE.CCW:
+			if pump.l_transmission and pump.l_transmission.rotate_direction == ROTATE_DIRECTION.TYPE.CCW:
 				return true
 			else:
 				return false
 		2:
-			if pump.f_transmission.rotate_direction == ROTATE_DIRECTION.TYPE.CCW:
+			if pump.f_transmission and pump.f_transmission.rotate_direction == ROTATE_DIRECTION.TYPE.CCW:
 				return true
 			else:
 				return false
 		3:
-			if pump.r_transmission.rotate_direction == ROTATE_DIRECTION.TYPE.CCW:
+			if pump.r_transmission and pump.r_transmission.rotate_direction == ROTATE_DIRECTION.TYPE.CCW:
 				return true
 			else:
 				return false
@@ -262,6 +263,7 @@ func update_flows() -> void:
 	var pumps: Array = get_building_by_res_id(8)
 	for pump: Pipe in pumps:
 		var dir: PIPE_HOLE.SIDE = def_pump_dir(pump)
+		pump.flow_strength = 5
 		if check_pumping(pump,dir):
 			set_pipe_flow(pump,dir,PIPE_HOLE.FLOW.OUT)
 			
@@ -273,6 +275,7 @@ func update_flows() -> void:
 				var pipe: Pipe = pump.neighbours[neighbour_dir]
 				
 				if pipe.holes[opposite] == true:
+					pipe.flow_strength = 4
 					need_visit.append(pipe)
 					set_pipe_flow(pipe,opposite,PIPE_HOLE.FLOW.IN)
 		else:
@@ -281,23 +284,26 @@ func update_flows() -> void:
 	while need_visit.size() > 0:
 		var pipe = need_visit.pop_front()
 		visited.append(pipe)
-		
-		for side in pipe.holes:
-			if pipe.holes[side] == true and pipe.flows[side] != PIPE_HOLE.FLOW.IN:
-				set_pipe_flow(pipe,side,PIPE_HOLE.FLOW.OUT)
-				var neighbour
-				
-				var count: int = pipe.neighbours.keys()[side]
-				neighbour = pipe.neighbours[count]
-				
-				if neighbour != null and neighbour is Pipe:
+		if pipe.flow_strength >= 0:
+			for side in pipe.holes:
+				if pipe.holes[side] == true and pipe.flows[side] != PIPE_HOLE.FLOW.IN:
+					set_pipe_flow(pipe,side,PIPE_HOLE.FLOW.OUT)
+					var neighbour
 					
-					var opposite: PIPE_HOLE.SIDE = Util.get_opposite_dir(side)
-					var new_pipe: Pipe = neighbour
+					var count: int = pipe.neighbours.keys()[side]
+					neighbour = pipe.neighbours[count]
 					
-					if new_pipe.holes[opposite] == true:
-						need_visit.append(new_pipe)
-						set_pipe_flow(new_pipe,opposite,PIPE_HOLE.FLOW.IN)
+					if neighbour != null and neighbour is Pipe:
+						neighbour.flow_strength = pipe.flow_strength - 1
+						var opposite: PIPE_HOLE.SIDE = Util.get_opposite_dir(side)
+						var new_pipe: Pipe = neighbour
+						
+						if check_pumping(neighbour, opposite):
+							neighbour.flow_strength = 5
+						
+						if new_pipe.flow_strength > 0 and new_pipe.holes[opposite] == true:
+							need_visit.append(new_pipe)
+							set_pipe_flow(new_pipe,opposite,PIPE_HOLE.FLOW.IN)
 
 	
 

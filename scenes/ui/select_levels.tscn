@@ -23,7 +23,7 @@ offset_right = 114.0
 offset_bottom = 66.0
 grow_horizontal = 2
 size_flags_horizontal = 4
-text = "key_select_level"
+text = "key_select_lvl"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -52,10 +52,11 @@ columns = 9
 layout_mode = 2
 
 [node name="lvlCode" type="TextEdit" parent="MarginContainer/ScrollContainer/GridContainer/OneLvlBtn"]
-custom_minimum_size = Vector2(100, 75)
+custom_minimum_size = Vector2(100, 107)
 layout_mode = 2
+theme_override_colors/font_placeholder_color = Color(1, 1, 1, 0.168627)
 theme_override_font_sizes/font_size = 18
-placeholder_text = "ABCDABCDABCDABCD"
+placeholder_text = "ABCDABCDABCDABCD..."
 wrap_mode = 1
 
 [node name="Button" type="Button" parent="MarginContainer/ScrollContainer/GridContainer/OneLvlBtn"]

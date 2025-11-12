@@ -1,0 +1,12 @@
+key,ru,en
+key_passed,Пройден,Completed
+key_not_passed,Не пройден,Failed
+key_resume,Вернуться,Return
+key_select_lvl,Выбрать уровень,Select level
+key_editor,Редактор карт,Map editor
+key_load,Загрузить,Load
+key_back,Назад,Back
+key_get_level,Получить уровень,Get level
+key_you_win,Уровень пройден!,Level completed!
+key_next,Следующий,Next
+key_ok,Ок,Ok

@@ -16,6 +16,8 @@ class_name Pipe
 @export var flow_r: PIPE_HOLE.FLOW = PIPE_HOLE.FLOW.NONE
 @export var flow_b: PIPE_HOLE.FLOW = PIPE_HOLE.FLOW.NONE
 
+var flow_strength: int = 0
+
 var particles: Dictionary = {
 	PIPE_HOLE.SIDE.LEFT: water_particle_l,
 	PIPE_HOLE.SIDE.FRONT:water_particle_f,

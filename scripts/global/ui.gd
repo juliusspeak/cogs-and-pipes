@@ -81,6 +81,7 @@ func show_levels() -> void:
 			lvl_button.button.text = tr("key_passed")
 		else:
 			lvl_button.button.text = tr("key_not_passed")
+		lvl_button.name_label.text = lvl.resource_path.get_file().get_basename()
 		lvl_button.three_star_element.stars = lvl.stars
 		lvl_button.button.pressed.connect(func():
 			GlobalData.levelMapController.current_lvl_map = lvl
