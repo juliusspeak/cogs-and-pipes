@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://d1kbuifh2ehht"]
+[gd_scene load_steps=3 format=3 uid="uid://d1kbuifh2ehht"]
 
 [ext_resource type="Script" uid="uid://d1ak3p8tainxx" path="res://scenes/ui/main_menu.gd" id="1_sl1te"]
+[ext_resource type="PackedScene" uid="uid://dj36hhp8guqb6" path="res://scenes/ui/social_buttons.tscn" id="2_fe2o3"]
 
 [node name="MainMenu" type="Panel" node_paths=PackedStringArray("select_level_button", "editor_button", "resume_button")]
 anchors_preset = 15
@@ -38,3 +39,18 @@ text = "key_select_lvl"
 [node name="editorButton" type="Button" parent="MainMenu"]
 layout_mode = 2
 text = "key_editor"
+
+[node name="socialButtons" parent="." instance=ExtResource("2_fe2o3")]
+modulate = Color(1, 1, 1, 0.47451)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -176.5
+offset_top = -164.0
+offset_right = 176.5
+offset_bottom = -120.0
+grow_horizontal = 2
+grow_vertical = 0

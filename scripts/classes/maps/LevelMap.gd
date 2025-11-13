@@ -73,8 +73,8 @@ class_name LevelMap
 	}
 @export var used_builds: int = 0
 
-var passed: bool = false
-var stars: int = 0
+@export var passed: bool = false
+@export var stars: int = 0
 @export var stars_conditions: Dictionary = {
 	1: 0,
 	2: 0,

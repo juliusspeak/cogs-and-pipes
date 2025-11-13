@@ -77,12 +77,15 @@ func show_levels() -> void:
 		var lvl_button = ResourceLoader.load(scenes["one_lvl_btn"]).instantiate()
 		grid.add_child(lvl_button)
 		
-		if lvl.passed == true:
+		var lvl_name: String = lvl.resource_path.get_file().get_basename()
+		lvl_button.name_label.text = lvl_name
+		
+		if GlobalData.passed_levels.has(lvl_name) == true:
 			lvl_button.button.text = tr("key_passed")
+			lvl_button.three_star_element.stars = GlobalData.passed_levels[lvl_name]["stars"]
 		else:
 			lvl_button.button.text = tr("key_not_passed")
-		lvl_button.name_label.text = lvl.resource_path.get_file().get_basename()
-		lvl_button.three_star_element.stars = lvl.stars
+			lvl_button.three_star_element.stars = 0
 		lvl_button.button.pressed.connect(func():
 			GlobalData.levelMapController.current_lvl_map = lvl
 			GlobalData.levelMapController.clean_lvl()

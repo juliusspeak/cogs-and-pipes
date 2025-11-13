@@ -141,6 +141,11 @@ mouse_filter = 0
 layout_mode = 2
 text = "key_get_level"
 
+[node name="getLvlButton2" type="Button" parent="HBoxContainer"]
+visible = false
+layout_mode = 2
+text = "+"
+
 [node name="lvlLineEdit" type="LineEdit" parent="HBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
@@ -148,3 +153,4 @@ layout_mode = 2
 [connection signal="pressed" from="editor_buttons/lockButton" to="." method="_on_lock_button_pressed"]
 [connection signal="pressed" from="editor_buttons/goalButton" to="." method="_on_goal_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/getLvlButton" to="." method="_on_get_lvl_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/getLvlButton2" to="." method="_on_get_lvl_button_2_pressed"]

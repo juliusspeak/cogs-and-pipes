@@ -10,7 +10,7 @@ signal level_passed
 func _ready() -> void:
 	GlobalData.levelMapController = self
 	Util.set_file_paths_to_arr("res://assets/maps/","tres",levels)
-	levels.reverse()
+	#levels.reverse()
 	GlobalData.state_changed.connect(change_state)
 
 func change_state(state: GlobalData.STATE):
@@ -38,7 +38,9 @@ func clean_lvl() -> void:
 			y += 1
 		x += 1
 		y = 0
+	
 	current_lvl_map.used_builds = 0
+
 func load_next() -> void:
 	var lvl_num = levels.find(str(current_lvl_map.resource_path))
 	if levels.size()-1 >= lvl_num + 1 and lvl_num != -1:
@@ -298,7 +300,7 @@ func update_flows() -> void:
 						var opposite: PIPE_HOLE.SIDE = Util.get_opposite_dir(side)
 						var new_pipe: Pipe = neighbour
 						
-						if check_pumping(neighbour, opposite):
+						if check_pumping(neighbour, side):
 							neighbour.flow_strength = 5
 						
 						if new_pipe.flow_strength > 0 and new_pipe.holes[opposite] == true:
@@ -333,7 +335,12 @@ func check_win_conditions() -> void:
 	
 	current_lvl_map.passed = true
 	def_stars()
+	
+	var lvl_name = current_lvl_map.resource_path.get_file().get_basename()
+	GlobalData.passed_levels[lvl_name] = {"state": "passed","stars":current_lvl_map.stars}
+	
 	level_passed.emit()
+	Builder.current_building = 0
 
 func def_stars() -> void:
 	if current_lvl_map.used_builds <= current_lvl_map.stars_conditions[1]:

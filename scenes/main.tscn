@@ -92,7 +92,7 @@ script = ExtResource("1_0wfyh")
 [node name="objects" type="Node3D" parent="."]
 
 [node name="floor" type="Node3D" parent="objects"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.71, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.41, 0)
 
 [node name="visual_world" type="GridMap" parent="objects/floor"]
 mesh_library = ExtResource("1_o5qli")
@@ -127,6 +127,7 @@ collision_mask = 2
 shape = SubResource("WorldBoundaryShape3D_jyhfs")
 
 [node name="visual" type="Node3D" parent="objects"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="objects/visual"]
 transform = Transform3D(1, 0, 0, 0, 0.999092, 0.042608, 0, -0.042608, 0.999092, 0, 0.937754, 43.834)

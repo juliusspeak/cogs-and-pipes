@@ -27,7 +27,7 @@ func _ready() -> void:
 	
 	sub_button2.pressed.connect(change_count.bind(label2,"-"))
 	add_button2.pressed.connect(change_count.bind(label2,"+"))
-
+	
 func _on_lock_button_pressed() -> void:
 	match Builder.current_state:
 		Builder.STATE.BUILDING:
@@ -105,3 +105,11 @@ func _on_get_lvl_button_pressed() -> void:
 	lvl.stars_conditions[2] = int(label1.text)
 	lvl.stars_conditions[3] = int(label2.text)
 	lvl_line_edit.text = Util.res_to_string(lvl)
+
+
+func _on_get_lvl_button_2_pressed() -> void:
+	var lvl: LevelMap = GlobalData.levelMapController.current_lvl_map
+	lvl.stars_conditions[1] = int(label0.text)
+	lvl.stars_conditions[2] = int(label1.text)
+	lvl.stars_conditions[3] = int(label2.text)
+	ResourceSaver.save(lvl, "res://assets/maps/" + lvl_line_edit.text + ".tres")

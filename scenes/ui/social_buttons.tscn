@@ -1,0 +1,129 @@
+[gd_scene load_steps=13 format=3 uid="uid://dj36hhp8guqb6"]
+
+[ext_resource type="Script" uid="uid://cus6d1p640vyt" path="res://scenes/ui/social_buttons.gd" id="1_e2xxh"]
+[ext_resource type="Texture2D" uid="uid://sjy7kowsnciw" path="res://assets/images/ui/steam.png" id="2_musir"]
+[ext_resource type="Texture2D" uid="uid://mla6u0dmpbmt" path="res://assets/images/ui/tg.png" id="3_8d3gn"]
+[ext_resource type="Texture2D" uid="uid://bquc00vjyi21v" path="res://assets/images/ui/youtube.png" id="4_j853r"]
+[ext_resource type="Texture2D" uid="uid://c54wxd3owm03w" path="res://assets/images/ui/itch-io.png" id="5_rya0h"]
+[ext_resource type="Texture2D" uid="uid://83e65v67x7y8" path="res://assets/images/ui/twitter.png" id="6_bspvh"]
+[ext_resource type="Texture2D" uid="uid://df7pxds0onjho" path="res://assets/images/ui/discord.png" id="7_ddb06"]
+[ext_resource type="Texture2D" uid="uid://dvt3ndvlcex1y" path="res://assets/images/ui/vk.png" id="8_m36x8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e2xxh"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gqjd1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h0kss"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qfpq6"]
+
+[node name="socialButtons" type="HBoxContainer"]
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_constants/separation = 10
+script = ExtResource("1_e2xxh")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+focus_neighbor_left = NodePath("../Button7")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../Button2")
+focus_neighbor_bottom = NodePath(".")
+theme_override_styles/focus = SubResource("StyleBoxFlat_e2xxh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_gqjd1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_h0kss")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qfpq6")
+icon = ExtResource("2_musir")
+flat = true
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 2
+focus_neighbor_left = NodePath("../Button")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../Button3")
+focus_neighbor_bottom = NodePath(".")
+theme_override_styles/focus = SubResource("StyleBoxFlat_e2xxh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_gqjd1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_h0kss")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qfpq6")
+icon = ExtResource("3_8d3gn")
+flat = true
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 2
+focus_neighbor_left = NodePath("../Button2")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../Button4")
+focus_neighbor_bottom = NodePath(".")
+theme_override_styles/focus = SubResource("StyleBoxFlat_e2xxh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_gqjd1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_h0kss")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qfpq6")
+icon = ExtResource("4_j853r")
+flat = true
+
+[node name="Button4" type="Button" parent="."]
+custom_minimum_size = Vector2(38, 38)
+layout_mode = 2
+focus_neighbor_left = NodePath("../Button3")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../Button5")
+focus_neighbor_bottom = NodePath(".")
+theme_override_styles/focus = SubResource("StyleBoxFlat_e2xxh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_gqjd1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_h0kss")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qfpq6")
+icon = ExtResource("5_rya0h")
+flat = true
+expand_icon = true
+
+[node name="Button5" type="Button" parent="."]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 2
+focus_neighbor_left = NodePath("../Button4")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../Button6")
+focus_neighbor_bottom = NodePath(".")
+theme_override_styles/focus = SubResource("StyleBoxFlat_e2xxh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_gqjd1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_h0kss")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qfpq6")
+icon = ExtResource("6_bspvh")
+flat = true
+expand_icon = true
+
+[node name="Button6" type="Button" parent="."]
+layout_mode = 2
+focus_neighbor_left = NodePath("../Button5")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../Button7")
+focus_neighbor_bottom = NodePath(".")
+theme_override_styles/focus = SubResource("StyleBoxFlat_e2xxh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_gqjd1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_h0kss")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qfpq6")
+icon = ExtResource("7_ddb06")
+flat = true
+
+[node name="Button7" type="Button" parent="."]
+layout_mode = 2
+focus_neighbor_left = NodePath("../Button6")
+focus_neighbor_top = NodePath(".")
+focus_neighbor_right = NodePath("../Button")
+focus_neighbor_bottom = NodePath(".")
+theme_override_styles/focus = SubResource("StyleBoxFlat_e2xxh")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_gqjd1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_h0kss")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qfpq6")
+icon = ExtResource("8_m36x8")
+flat = true

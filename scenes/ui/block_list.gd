@@ -1,5 +1,6 @@
 extends HBoxContainer
 
+
 func _ready() -> void:
 	if GlobalData.current_state != GlobalData.STATE.EDITOR:
 		Builder.build_block.connect(sub_block)
