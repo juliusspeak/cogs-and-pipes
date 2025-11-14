@@ -30,9 +30,11 @@ static func set_file_paths_to_arr(path: String, extension: String, arr: Array) -
 
 static func res_to_string(res: Resource) -> String:
 	var bytes: PackedByteArray = var_to_bytes_with_objects(res)
-	return Marshalls.raw_to_base64(bytes)
+	var compressed = bytes.duplicate().compress(FileAccess.CompressionMode.COMPRESSION_DEFLATE)
+	return Marshalls.raw_to_base64(compressed)
 
 func string_to_res(data: String) -> Resource:
-	var bytes: PackedByteArray = Marshalls.base64_to_raw(data)
-	var res: LevelMap = bytes_to_var_with_objects(bytes)
+	var compressed: PackedByteArray = Marshalls.base64_to_raw(data)
+	var decompressed = compressed.decompress_dynamic(-1,FileAccess.CompressionMode.COMPRESSION_DEFLATE)
+	var res: LevelMap = bytes_to_var_with_objects(decompressed)
 	return res

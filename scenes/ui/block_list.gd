@@ -6,6 +6,7 @@ func _ready() -> void:
 		Builder.build_block.connect(sub_block)
 		Builder.demolish_block.connect(add_block)
 	set_up()
+	GlobalData.block_list = self
 
 func set_up() -> void:
 	for button in get_children():

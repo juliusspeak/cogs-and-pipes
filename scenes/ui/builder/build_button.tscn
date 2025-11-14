@@ -27,7 +27,7 @@ alignment = 2
 
 [node name="subButton" type="Button" parent="HBoxContainer"]
 layout_mode = 2
-text = "-"
+text = "- "
 
 [node name="Label" type="Label" parent="HBoxContainer"]
 layout_mode = 2

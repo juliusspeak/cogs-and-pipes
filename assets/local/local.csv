@@ -10,3 +10,4 @@ key_get_level,Получить уровень,Get level
 key_you_win,Уровень пройден!,Level completed!
 key_next,Следующий,Next
 key_ok,Ок,Ok
+key_load_level,Загрузить уровень,Load Level

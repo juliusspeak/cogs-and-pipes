@@ -15,3 +15,4 @@ var current_state: STATE = STATE.MENU:
 enum STATE {MENU, LEVELSELECT, GAME, EDITOR, LOADGAME, LOADEDITOR, PAUSE}
 
 var passed_levels: Dictionary
+var block_list

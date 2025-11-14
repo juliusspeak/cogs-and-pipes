@@ -178,7 +178,7 @@ func set_opposite_dir_from_to(from: Transmission, to: Transmission) -> void:
 func update_transmissions() -> void:
 	var need_visit: Array
 	var visited: Array
-	need_visit.append(get_building_by_pos(Vector2i(0,9)))
+	need_visit.append_array(get_building_by_res_id(2))
 	
 	while need_visit.size() > 0:
 		var building: Building = need_visit.pop_front()

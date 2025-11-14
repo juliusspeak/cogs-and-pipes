@@ -2,6 +2,7 @@ extends Control
 
 @export var get_lvl_button: Button
 @export var lvl_line_edit: LineEdit
+@export var load_lvl_line_edit: LineEdit
 
 @export var lock_button: Button
 @export var goal_button: Button
@@ -107,9 +108,35 @@ func _on_get_lvl_button_pressed() -> void:
 	lvl_line_edit.text = Util.res_to_string(lvl)
 
 
-func _on_get_lvl_button_2_pressed() -> void:
+#func _on_get_lvl_button_2_pressed() -> void:
+	#var lvl: LevelMap = GlobalData.levelMapController.current_lvl_map
+	#lvl.stars_conditions[1] = int(label0.text)
+	#lvl.stars_conditions[2] = int(label1.text)
+	#lvl.stars_conditions[3] = int(label2.text)
+	#ResourceSaver.save(lvl, "res://assets/maps/" + lvl_line_edit.text + ".tres")
+
+
+func _on_load_lvl_button_pressed() -> void:
+	var lvl = Util.string_to_res(load_lvl_line_edit.text)
+	if lvl is LevelMap:
+		GlobalData.levelMapController.current_lvl_map = lvl
+		GlobalData.levelMapController.clean_lvl()
+		GlobalData.levelMapController.update_map()
+		update_ui_from_lvl()
+
+func _on_copy_button_pressed() -> void:
+	DisplayServer.clipboard_set(lvl_line_edit.text)
+
+func _on_paste_button_pressed() -> void:
+	load_lvl_line_edit.text = DisplayServer.clipboard_get()
+
+func update_ui_from_lvl() -> void:
 	var lvl: LevelMap = GlobalData.levelMapController.current_lvl_map
-	lvl.stars_conditions[1] = int(label0.text)
-	lvl.stars_conditions[2] = int(label1.text)
-	lvl.stars_conditions[3] = int(label2.text)
-	ResourceSaver.save(lvl, "res://assets/maps/" + lvl_line_edit.text + ".tres")
+	var build_res_keys = BUILDING_RES.LINK.keys()
+	
+	label0.text = str(lvl.stars_conditions[1])
+	label1.text = str(lvl.stars_conditions[2])
+	label2.text = str(lvl.stars_conditions[3])
+	
+	for b in GlobalData.block_list.get_children():
+		b.num_label.text = str(lvl.build_limit[build_res_keys[b.build_num]])
