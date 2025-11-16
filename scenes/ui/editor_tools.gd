@@ -108,12 +108,12 @@ func _on_get_lvl_button_pressed() -> void:
 	lvl_line_edit.text = Util.res_to_string(lvl)
 
 
-#func _on_get_lvl_button_2_pressed() -> void:
-	#var lvl: LevelMap = GlobalData.levelMapController.current_lvl_map
-	#lvl.stars_conditions[1] = int(label0.text)
-	#lvl.stars_conditions[2] = int(label1.text)
-	#lvl.stars_conditions[3] = int(label2.text)
-	#ResourceSaver.save(lvl, "res://assets/maps/" + lvl_line_edit.text + ".tres")
+func _on_get_lvl_button_2_pressed() -> void:
+	var lvl: LevelMap = GlobalData.levelMapController.current_lvl_map
+	lvl.stars_conditions[1] = int(label0.text)
+	lvl.stars_conditions[2] = int(label1.text)
+	lvl.stars_conditions[3] = int(label2.text)
+	ResourceSaver.save(lvl, "res://assets/maps/" + lvl_line_edit.text + ".tres")
 
 
 func _on_load_lvl_button_pressed() -> void:
