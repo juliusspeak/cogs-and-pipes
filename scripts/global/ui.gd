@@ -99,23 +99,26 @@ func show_editor_tools() -> void:
 
 
 func change_state(state: GlobalData.STATE):
-	clear_all()
 	match state:
 		GlobalData.STATE.MENU:
+			clear_all()
 			show_menu()
 		GlobalData.STATE.LEVELSELECT:
+			clear_all()
 			show_levels()
 		GlobalData.STATE.LOADGAME:
+			clear_all()
 			show_block_list()
 		GlobalData.STATE.LOADEDITOR:
+			clear_all()
 			show_block_list()
 			show_editor_tools()
 		GlobalData.STATE.PAUSE:
 			show_menu()
 		GlobalData.STATE.GAME:
-			show_block_list()
+			#show_block_list()
 			hide_menu()
 		GlobalData.STATE.EDITOR:
-			show_block_list()
+			#show_block_list()
 			show_editor_tools()
 			hide_menu()
