@@ -11,7 +11,7 @@ static func get_opposite_dir(dir):
 		return 1
 
 static func set_file_paths_to_dicts(path: String, extension: String, dict: Dictionary) -> void:
-	var files := ResourceLoader.list_directory(path)
+	var files = ResourceLoader.list_directory(path)
 	for file in files:
 		var full_path = path.trim_suffix("/") + "/" + file
 		if file.ends_with("/"):
@@ -20,7 +20,7 @@ static func set_file_paths_to_dicts(path: String, extension: String, dict: Dicti
 			dict[file.get_basename()] = full_path
 
 static func set_file_paths_to_arr(path: String, extension: String, arr: Array) -> void:
-	var files := ResourceLoader.list_directory(path)
+	var files = ResourceLoader.list_directory(path)
 	for file in files:
 		var full_path = path.trim_suffix("/") + "/" + file
 		if file.ends_with("/"):

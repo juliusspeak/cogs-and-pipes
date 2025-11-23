@@ -48,7 +48,7 @@ horizontal_scroll_mode = 0
 [node name="GridContainer" type="GridContainer" parent="MarginContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-columns = 9
+columns = 11
 
 [node name="OneLvlBtn" type="VBoxContainer" parent="MarginContainer/ScrollContainer/GridContainer"]
 layout_mode = 2
